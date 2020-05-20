@@ -15,21 +15,21 @@ Remarquons d'abord que seule la base de données est attendue et non la concepti
 Dans le cadre de ce projet, plusieurs livrables sont attendus, ils sont jalonnés sur 4 à 5 phases. 
 Chaque livrable sera livré deux jours avant la date du TD correspondant.
 
-Phase 1 : livré le 
+**Phase 1 : le 25 mai
 Note de clarification et modèle conceptuel de données. 
 
-Phase 2 : livré le 
+**Phase 2 : le 1er juin
 Note de clarification, modèle conceptuel de données, modèle logique de données, implémentation SQL (create, insert). 
 
-Phase 3 : livré le 
+**Phase 3 : le 8 juin
 Note de clarification, modèle conceptuel de données, modèle logique de données, implémentation SQL (create, insert),
 SQL INSERT, ainsi qu'un complément de normalisation. 
 
-Phase 4 : livré le 
+**Phase 4 : le 15 juin
 Révision complète du projet : version 2. 
 
-Si nécessaire (si l'UV n'a pas été validée): 
-Phase 5 : 
+**Si nécessaire (si l'UV n'a pas été validée): 
+Phase 5 : le 22 juin
 Révision complète du projet : version 3. 
 
 
@@ -38,7 +38,7 @@ Révision complète du projet : version 3.
 ## Risques
 
 ## Système d’information et de communication
-Chaque livrable sera déposé sur Git. La communication entre la maitrise d'oeuvre et la maitrise d'ouvrage se fera par mattermost ainsi que mumble.
+Chaque livrable sera déposé sur Git. La communication entre la maitrise d'oeuvre et la maitrise d'ouvrage se fera par mattermost (message personnel) ainsi que mumble.
 
 
 ## Fonctionnalités du système
