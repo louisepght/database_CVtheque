@@ -39,7 +39,8 @@ class formation {
   pays VARCHAR
   ville VARCHAR
 }
-note "avec (titre, etablissement) KEY"
+class formation
+note bottom: avec (titre, etablissement) KEY
 
 class experience{
     titre_poste VARCHAR 
@@ -50,13 +51,15 @@ class experience{
     nom_entreprise VARCHAR 
     duree ()
 }
+class experience
+note bottom: avec (duree, fonction) KEY
 
 class competence{
-    nom VARCHAR
+    nom VARCHAR {KEY}
 }
 
 class langue{
-    langue VARCHAR 
+    langue VARCHAR {KEY}
     niveau VARCHAR
 }
 
@@ -67,7 +70,7 @@ class info_complementaire{
 }
 
 class candidat{
-    identifiant VARCHAR
+    identifiant VARCHAR {KEY}
     mot_de_passe VARCHAR 
     nom VARCHAR
     prenom VARCHAR
@@ -79,21 +82,31 @@ class referant{
 }
 
 class publication{
-    ISBN INTEGER
+    ISBN INTEGER {KEY}
     titre VARCHAR 
     date DATETIME 
     contenu VARCHAR 
 }
 
 class web {
-    URL VARCHAR
+    URL VARCHAR {KEY}
     type = {professionnel, personnel}
 }
 
 class telephone {
-    numero INTEGER
+    numero INTEGER {KEY}
     type = {fixe_perso, port_perso, port_pro, fixe_pro}
 }
+
+class association{
+    nom VARCHAR  {KEY}
+    duree INTEGER 
+    poste VARCHAR
+}
+
+
+
+@enduml
 
 class association{
     nom VARCHAR 
