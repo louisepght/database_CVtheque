@@ -107,13 +107,3 @@ class association{
 
 
 @enduml
-
-class association{
-    nom VARCHAR 
-    duree INTEGER 
-    poste VARCHAR
-}
-
-
-
-@enduml
