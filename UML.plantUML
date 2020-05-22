@@ -1,0 +1,106 @@
+@startuml
+
+CV "0..N" -- "0..N" formation : contient >
+
+CV "1" -- "0..N" experience : contient >
+
+CV "0..N" -- "0..N" competence : contient >
+
+CV "0..N" -- "0..N" langue : contient >
+
+CV "1" -- "0..1" info_complementaire : contient >
+
+candidat "1" -- "1" CV : possede >
+
+candidat "1"-- "0..N" referant : possede >
+
+candidat "1" -- "0..N" publication : publi >
+
+candidat "1" -- "0..N" web : a > 
+
+candidat "1" -- "0..N" telephone : possede >
+
+candidat "0..N" -- "0..N" association : est-engagé >
+
+class CV {
+  titre VARCHAR 
+  langue = {francais, anglais}
+  statut = {active, confidentiel, desactive}
+  date_crea TIMESTAMP
+  date_modif TIMESTAMP
+}
+
+class formation { 
+  titre VARCHAR 
+  type VARCHAR 
+  date_debut DATE
+  date_fin DATE
+  etablissement VARCHAR 
+  pays VARCHAR
+  ville VARCHAR
+}
+note "avec (titre, etablissement) KEY"
+
+class experience{
+    titre_poste VARCHAR 
+    date_debut DATETIME 
+    date_fin DATETIME 
+    fonction VARCHAR 
+    secteur_act VARCHAR 
+    nom_entreprise VARCHAR 
+    duree ()
+}
+
+class competence{
+    nom VARCHAR
+}
+
+class langue{
+    langue VARCHAR 
+    niveau VARCHAR
+}
+
+class info_complementaire{
+    permis = {A,B,C,D,E,F}
+    vehicule VARCHAR 
+    passion VARCHAR
+}
+
+class candidat{
+    identifiant VARCHAR
+    mot_de_passe VARCHAR 
+    nom VARCHAR
+    prenom VARCHAR
+    e_mail VARCHAR
+}
+
+class referant{
+    nom VARCHAR
+}
+
+class publication{
+    ISBN INTEGER
+    titre VARCHAR 
+    date DATETIME 
+    contenu VARCHAR 
+}
+
+class web {
+    URL VARCHAR
+    type = {professionnel, personnel}
+}
+
+class telephone {
+    numero INTEGER
+    type = {fixe_perso, port_perso, port_pro, fixe_pro}
+}
+
+class association{
+    nom VARCHAR 
+    duree INTEGER 
+    poste VARCHAR
+}
+
+
+
+@enduml
