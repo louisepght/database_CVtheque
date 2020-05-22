@@ -14,7 +14,7 @@ candidat "1" -- "1" CV : possede >
 
 candidat "1"-- "0..N" referant : possede >
 
-candidat "1" -- "0..N" publication : publi >
+candidat "1" -- "1..N" publication : publi >
 
 candidat "1" -- "0..N" web : a > 
 
