@@ -8,17 +8,17 @@ CV "0..N" -- "0..N" competence : contient >
 
 CV "0..N" -- "0..N" langue : contient >
 
-CV "1" -- "0..1" info_complementaire : contient >
+CV "0..N" -- "0..1" info_complementaire : contient >
 
 candidat "1" -- "1" CV : possede >
 
 candidat "1"-- "0..N" referant : possede >
 
-candidat "1" -- "1..N" publication : publi >
+candidat "1" -- "0..N" publication : publi >
 
 candidat "1" -- "0..N" web : a > 
 
-candidat "1" -- "0..N" telephone : possede >
+candidat "1" -- "1..N" telephone : possede >
 
 candidat "0..N" -- "0..N" association : est-engagé >
 
@@ -48,11 +48,9 @@ class experience{
     date_fin DATETIME 
     fonction VARCHAR 
     secteur_act VARCHAR 
-    nom_entreprise VARCHAR 
+    nom_entreprise VARCHAR {KEY} 
     duree ()
 }
-class experience
-note bottom: avec (duree, fonction) KEY
 
 class competence{
     nom VARCHAR {KEY}
@@ -64,9 +62,8 @@ class langue{
 }
 
 class info_complementaire{
-    permis = {A,B,C,D,E,F}
-    vehicule VARCHAR 
-    passion VARCHAR
+    permis BOOL
+    vehicule BOOL
 }
 
 class candidat{
@@ -79,6 +76,7 @@ class candidat{
 
 class referant{
     nom VARCHAR
+    prenom VARCHAR
 }
 
 class publication{
