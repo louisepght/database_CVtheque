@@ -54,19 +54,17 @@ Le projet repose sur plusieurs dispositif :
 
 
 ## Fonctionnalités du système
-La base de données doit permettre de gérer des personnes, ainsi que l'ensemble des informations qui leur sont associées et qui sont nécessaires à la production d'un CV.
+La base de données doit permettre de gérer des personnes, 
+ainsi que l'ensemble des informations qui leur sont associées et qui sont nécessaires à la production d'un CV.
 
 L'application doit répondre à certains besoins, elle doit donner par exemple :
+- possibilité de faire des requêtes sur la base de données comme : 
 
-Le nombre de candidats par domaine d'études
+    donner le nombre de candidats par domaine d'études, donner la liste des candidats ayant comme compétence base de données et plus de 5 ans d'expériences
+, synthétiser le parcours de chaque candidat en précisant la liste de ses diplômes, la liste des postes occupés, le nombre d'expériences professionnelles acquises, les langues maîtrisées; 
+la recherche multicritères des candidats en fonction du nombre d'expériences professionnelles, de l'année d'obtention de dernier diplôme, du poste souhaité.
 
-La liste des candidats ayant comme compétence base de données et plus de 5 ans d'expériences
-
-Synthétiser le parcours de chaque candidat en précisant la liste de ses diplômes, la liste des postes occupés, le nombre d'expériences professionnelles acquises, les langues maîtrisées.
-
-La recherche multicritères des candidats en fonction du nombre d'expériences professionnelles, de l'année d'obtention de dernier diplôme, du poste souhaité.
-
-L'application doit aussi permettre l'ajout des candidats et des CV.
+- possibilité de modifier, ajouter ou supprimer des éléments de la base de donnée.
 
 ## Définition des objets, de leurs propriétés et de leurs contraintes
 ### Le candidat 
@@ -89,13 +87,13 @@ Il se caratérise par :
 -une date de création 
 -une date de modification
 
-Un CV n'appratient qu'à un et un seul candidat. 
+Un CV n'appartient qu'à un et un seul candidat. 
 
 ### Le référant 
 Il s'agit du référant d'un candidat. 
 Il est caractérisé par son nom et son prénom.
 Un candidat peut avoir un ou plusieurs référant, nous faisons l'hypothèse qu'il peut ne pas en avoir. 
-Nous faisons l'hypothèse que le référant d'un candidat peut être candidat lui-même.
+Nous faisons également l'hypothèse que le référant d'un candidat peut être candidat lui-même.
 
 ### La publication 
 Un candidat peut faire une publication. Celle-ci est caractérisée par : 
@@ -104,7 +102,7 @@ Un candidat peut faire une publication. Celle-ci est caractérisée par :
 -une date (de publication)
 -un contenu 
 
-Seul un candidat a des publications. Un candidat peut avoir zéro, une ou plusieurs publications.
+Seul un candidat a des publications. Un candidat peut avoir aucune, une ou plusieurs publications.
 
 ### Une page WEB 
 Un candidat peut avoir une page web caractérisée par :
@@ -183,11 +181,11 @@ Un candidat peut avoir aucune ou une rubrique informations complémentaires. Plu
 ## Les utilisateurs de l'application 
 
 ### Les candidats 
-Ils pourront créer l'ensemble des informations qui les caractérisent, peuvent modifier certaines informations. 
+Ils pourront créer l'ensemble des informations qui les caractérisent, et peuvent modifier ou supprimer certaines informations. 
 
 ### Tout individu 
 Toute personne ayant accès à l'application pourra visualiser les informations de tous les candidats de la base de données. 
-Ils pourront gérer les candidats en fonction de certains critères de leur choix (par exemple : la liste des candidats ayant comme compétence bse de données).
+Ils pourront gérer les candidats en fonction de certains critères de leur choix (par exemple : la liste des candidats ayant comme compétence base de données).
 Ils pourront également avoir accès à des statistiques (par exemple : le nombre de candidats par domaine d'étude). 
 
 
