@@ -13,7 +13,7 @@ La maitrise d'oeuvre est Louise Poughet (GI01).
 Dans le cadre de ce projet, plusieurs livrables sont attendus, ils sont jalonnés sur 4 à 5 phases. 
 Chaque livrable sera livré deux jours avant la date du TD correspondant.
 
-###Phase 1 : le 25 mai 
+### Phase 1 : le 25 mai 
 Note de clarification et modèle conceptuel de données. 
 
 ### Phase 2 : le 1er juin 
