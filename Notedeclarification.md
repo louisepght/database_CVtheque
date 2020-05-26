@@ -13,26 +13,26 @@ La maitrise d'oeuvre est Louise Poughet (GI01).
 Dans le cadre de ce projet, plusieurs livrables sont attendus, ils sont jalonnés sur 4 à 5 phases. 
 Chaque livrable sera livré deux jours avant la date du TD correspondant.
 
-** Phase 1 : le 25 mai **
+###Phase 1 : le 25 mai 
 Note de clarification et modèle conceptuel de données. 
 
-** Phase 2 : le 1er juin **
+### Phase 2 : le 1er juin 
 Note de clarification, modèle conceptuel de données, modèle logique de données, implémentation SQL (create, insert). 
 
-** Phase 3 : le 8 juin **
+### Phase 3 : le 8 juin 
 Note de clarification, modèle conceptuel de données, modèle logique de données, implémentation SQL (create, insert),
 SQL INSERT, ainsi qu'un complément de normalisation. 
 
-** Phase 4 : le 15 juin **
+### Phase 4 : le 15 juin 
 Révision complète du projet : version 2. 
 
-** Si nécessaire (si l'UV n'a pas été validée): **
+## Si nécessaire (si l'UV n'a pas été validée): 
 Phase 5 : le 22 juin
 Révision complète du projet : version 3. 
 
 
 ## Contraintes
-** Les livraisons devront être compatible avec l'environnement de travail de la maitrise d'ouvrage. **
+Les livraisons devront être compatible avec l'environnement de travail de la maitrise d'ouvrage. 
 Ainsi, le diagramme UML sera codé en PLANTUML, et le code devra être compatible avec la version PostgreSQL du parc informatique UTC.
 
 ## Risques
