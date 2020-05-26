@@ -91,7 +91,7 @@ Un CV n'appartient qu'à un et un seul candidat.
 
 ### Le référant 
 Il s'agit du référant d'un candidat. 
-Il est caractérisé par son nom et son prénom.
+Il est caractérisé par son nom et son prénom et de l'entreprise dans laquelle il travaille.
 Un candidat peut avoir un ou plusieurs référant, nous faisons l'hypothèse qu'il peut ne pas en avoir. 
 Nous faisons également l'hypothèse que le référant d'un candidat peut être candidat lui-même.
 
