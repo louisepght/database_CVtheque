@@ -22,6 +22,12 @@ candidat "1" -- "1..N" telephone : possede >
 
 candidat "0..N" -- "0..N" association : est-engagé >
 
+niveau .. (CV, langue)
+
+class niveau {
+    niveau VARCHAR
+}
+
 class CV {
   titre VARCHAR 
   langue = {francais, anglais}
@@ -39,6 +45,7 @@ class formation {
   pays VARCHAR
   ville VARCHAR
 }
+
 class formation
 note bottom: avec (titre, etablissement) KEY
 
