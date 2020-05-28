@@ -7,13 +7,13 @@ On ajoute une clé étrangère car aucune clé potentielle, IDCV clé, et titre,
 referant(#nom_entreprise : VARCHAR, nom : VARCHAR, prenom : VARCHAR, #candidat => candidat.identifiant)
 avec nom_entreprise clé, nom, prenom NOT NULL, et candidat UNIQUE et NOT NULL.
 
-publication(#ISBN : INTEGER, titre : VARCHAR, date : DATETIME, contenu : VARCHAR, #candidat => candidat.identifiant)
+publication(#ISBN : INTEGER, titre : VARCHAR, date : DATETIME, contenu : VARCHAR, candidat => candidat.identifiant)
 avec ISBN clé, titre, date, contenu NOT NULL, et candidat NOT NULL et UNIQUE.
 
-web(#URL : VARCHAR, type : ENUM, #candidat => candidat.identifiant)
+web(#URL : VARCHAR, type : ENUM, candidat => candidat.identifiant)
 avec URL clé, type NOT NULL et candidat NOT NULL et UNIQUE.
 
-telephone(#numero : INTEGER, type = ENUM, #candidat => candidat.identifiant}
+telephone(#numero : INTEGER, type = ENUM, candidat => candidat.identifiant}
 avec numero clé, type NOT NULL, et candidat NOT NULL et UNIQUE.
 
 experience(#nom_entreprise : VARCHAR, titre_poste : VARCHAR, date_debut : DATETIME, date_fin : DATETIME, fonction : VARCHAR, secteur_act : VARCHAR, #cv => CV.IDCV)
