@@ -65,7 +65,6 @@ class competence{
 
 class langue{
     langue VARCHAR {KEY}
-    niveau VARCHAR
 }
 
 class info_complementaire{
