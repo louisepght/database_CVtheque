@@ -4,8 +4,8 @@ CREATE TABLE candidat(
     nom VARCHAR NOT NULL,
     prenom VARCHAR NOT NULL,
     e_mail  VARCHAR NOT NULL,
-    cv INTEGER NOT NULL REFERENECES CV(IDCV),
-    UNIQUE (cv),
+    cv INTEGER NOT NULL REFERENCES CV(IDCV),
+    UNIQUE(cv),
     PRIMARY KEY(identifiant),
 );
 
@@ -15,8 +15,8 @@ CREATE TABLE CV(
     titre VARCHAR NOT NULL,
     langue VARCHAR NOT NULL,
     statut VARCHAR NOT NULL,
-    date_crea TIMESTAMP NOT NULL,
-    date_modif TIMESTAMP NOT NULL,
+    date_crea DATE NOT NULL,
+    date_modif DATE NOT NULL,
     info REFERENCES info_complementaire(IDINFO),
     PRIMARY KEY(IDCV),
     CHECK(langue IN ('francais', 'anglais')),
@@ -29,7 +29,7 @@ CREATE TABLE referant(
     prenom VARCHAR NOT NULL,
     candidat INTEGER NOT NULL,
     PRIMARY KEY(nom_entreprise),
-    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant),
+    FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     UNIQUE(candidat)
 );
 
@@ -40,8 +40,9 @@ CREATE TABLE publication(
     contenu VARCHAR NOT NULL,
     candidat INTEGER NOT NULL,
     PRIMARY KEY(ISBN),
-    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant),
-    UNIQUE(candidat)
+    FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
+    UNIQUE(candidat),
+    CHECK (LENGTH(ISBN)=10 OR LENGTH(ISBN)=13)
 );
 
 CREATE TABLE web(
@@ -49,9 +50,10 @@ CREATE TABLE web(
     type_web VARCHAR NOT NULL,
     candidat INTEGER NOT NULL,
     PRIMARY KEY(URL),
-    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant),
+    FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     UNIQUE(candidat),
-    CHECK (type_web) IN () 
+    CHECK (type_web) IN (),
+    CHECK (SUBSTR(URL,1,8) ='https://')
 );
 
 CREATE TABLE telephone(
@@ -59,7 +61,7 @@ CREATE TABLE telephone(
     type_tel VARCHAR,
     candidat INTEGER,
     PRIMARY KEY(numero),
-    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant),
+    FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     UNIQUE(candidat),
     CHECK(type_tel) IN ('')
 );
@@ -73,7 +75,7 @@ CREATE TABLE experience(
     secteur_act VARCHAR NOT NULL,
     cv INTEGER NOT NULL,
     PRIMARY KEY(nom_entreprise),
-    FOREIGN KEY(cv) REFERENCES (CV.IDCV),
+    FOREIGN KEY(cv) REFERENCES CV(IDCV),
     UNIQUE (cv)
 );
 
@@ -115,8 +117,8 @@ CREATE TABLE association(
 CREATE TABLE vie_associative(
     association VARCHAR,
     candidat INTEGER,
-    FOREIGN KEY (association) REFERENCES (association.nom),
-    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant)
+    FOREIGN KEY (association) REFERENCES association(nom),
+    FOREIGN KEY(candidat) REFERENCES candidat(identifiant)
 );
 
 CREATE TABLE niveau(
@@ -124,7 +126,7 @@ CREATE TABLE niveau(
     cv INTEGER,
     niveau VARCHAR NOT NULL,
     FOREIGN KEY (langue) REFERENCES (langue),
-    FOREIGN KEY (cv) REFERENCES (CV.IDCV)
+    FOREIGN KEY (cv) REFERENCES CV(IDCV)
 );
 
 CREATE TABLE asso_comp(
@@ -138,7 +140,7 @@ CREATE TABLE asso_formation(
     formation VARCHAR,
     cv INTEGER,
     FOREIGN KEY (formation) REFERENCES (formation),
-    FOREIGN KEY (cv) REFERENCES (CV.IDCV)
+    FOREIGN KEY (cv) REFERENCES CV(IDCV)
 );
 
 
