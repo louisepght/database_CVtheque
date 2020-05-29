@@ -24,93 +24,121 @@ CREATE TABLE CV(
 );
 
 CREATE TABLE referant(
-    nom_entreprise VARCHAR
-    nom VARCHAR NOT NULL
-    prenom VARCHAR NOT NULL
-    candidat INTEGER NOT NULL
+    nom_entreprise VARCHAR,
+    nom VARCHAR NOT NULL,
+    prenom VARCHAR NOT NULL,
+    candidat INTEGER NOT NULL,
+    PRIMARY KEY(nom_entreprise),
+    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant),
+    UNIQUE(candidat)
 );
 
 CREATE TABLE publication(
-    ISBN INTEGER
-    titre VARCHAR NOT NULL
-    date DATETIME NOT NULL
-    contenu VARCHAR NOT NULL
-    candidat INTEGER NOT NULL
+    ISBN INTEGER,
+    titre VARCHAR NOT NULL,
+    date DATETIME NOT NULL,
+    contenu VARCHAR NOT NULL,
+    candidat INTEGER NOT NULL,
+    PRIMARY KEY(ISBN),
+    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant),
+    UNIQUE(candidat)
 );
 
 CREATE TABLE web(
-    URL VARCHAR
-    type VARCHAR NOT NULL
-    candidat INTEGER NOT NULL
+    URL VARCHAR,
+    type_web VARCHAR NOT NULL,
+    candidat INTEGER NOT NULL,
+    PRIMARY KEY(URL),
+    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant),
+    UNIQUE(candidat),
+    CHECK (type_web) IN () 
 );
 
 CREATE TABLE telephone(
-    numero VARCHAR(10)      (tel = VARCHAR NOT INTEGER)
-    type VARCHAR
-    candidat INTEGER
+    numero VARCHAR(10),   
+    type_tel VARCHAR,
+    candidat INTEGER,
+    PRIMARY KEY(numero),
+    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant),
+    UNIQUE(candidat),
+    CHECK(type_tel) IN ('')
 );
 
 CREATE TABLE experience(
-    nom_entreprise VARCHAR 
-    titre_poste VARCHAR NOT NULL
-    date_debut DATETIME NOT NULL
-    date_fin DATETIME NOT NULL
-    fonction VARCHAR NOT NULL
-    secteur_act VARCHAR NOT NULL
-    cv INTEGER NOT NULL
+    nom_entreprise VARCHAR,
+    titre_poste VARCHAR NOT NULL,
+    date_debut DATE NOT NULL,
+    date_fin DATE NOT NULL,
+    fonction VARCHAR NOT NULL,
+    secteur_act VARCHAR NOT NULL,
+    cv INTEGER NOT NULL,
+    PRIMARY KEY(nom_entreprise),
+    FOREIGN KEY(cv) REFERENCES (CV.IDCV),
+    UNIQUE (cv)
 );
 
 CREATE TABLE info_complementaire(
-    IDINFO INTEGER
-    permis VARCHAR
-    vehicule VARCHAR
+    IDINFO INTEGER,
+    permis VARCHAR,
+    vehicule VARCHAR,
+    PRIMARY KEY(IDINFO)
 );
 
 CREATE TABLE formation(
-    titre VARCHAR
-    etablissement VARCHAR
-    type VARCHAR NOT NULL
-    date_debut DATE NOT NULL
-    date_fin DATE NOT NULL
-    pays VARCHAR NOT NULL
-    ville VARCHAR NOT NULL
-    
+    titre VARCHAR,
+    etablissement VARCHAR,
+    type_formation VARCHAR NOT NULL,
+    date_debut DATE NOT NULL,
+    date_fin DATE NOT NULL,
+    pays VARCHAR NOT NULL,
+    ville VARCHAR NOT NULL,
+    PRIMARY KEY(titre,etablissement)
 );
 
 CREATE TABLE competence(
-    nom VARCHAR
+    nom VARCHAR,
+    PRIMARY KEY(nom)
 );
 
 CREATE TABLE langue(
-    langue VARCHAR
+    langue VARCHAR,
+    PRIMARY KEY(langue)
 );
 
 CREATE TABLE association(
-    nom VARCHAR
-    duree INTEGER
-    poste VARCHAR
+    nom VARCHAR,
+    duree INTEGER,
+    poste VARCHAR,
+    PRIMARY KEY(nom)
 );
 
 CREATE TABLE vie_associative(
-    association VARCHAR
-    candidat INTEGER
-    
+    association VARCHAR,
+    candidat INTEGER,
+    FOREIGN KEY (association) REFERENCES (association.nom),
+    FOREIGN KEY(candidat) REFERENCES (candidat.identifiant)
 );
 
 CREATE TABLE niveau(
-    langue VARCHAR
-    cv INTEGER
-    niveau VARCHAR NOT NULL
+    langue VARCHAR,
+    cv INTEGER,
+    niveau VARCHAR NOT NULL,
+    FOREIGN KEY (langue) REFERENCES (langue),
+    FOREIGN KEY (cv) REFERENCES (CV.IDCV)
 );
 
 CREATE TABLE asso_comp(
-    competence VARCHAR
-    cv INTEGER
+    competence VARCHAR,
+    cv INTEGER,
+    FOREIGN KEY(competence) REFERENCES (competence),
+    FOREIGN KEY (cv) REFERENCES (CV)
 );
 
 CREATE TABLE asso_formation(
-    formation VARCHAR
-    cv INTEGER
+    formation VARCHAR,
+    cv INTEGER,
+    FOREIGN KEY (formation) REFERENCES (formation),
+    FOREIGN KEY (cv) REFERENCES (CV.IDCV)
 );
 
 
