@@ -52,7 +52,7 @@ CREATE TABLE candidat(
     prenom VARCHAR NOT NULL,
     e_mail  VARCHAR NOT NULL,
     cv INTEGER NOT NULL REFERENCES CV(IDCV),
-    UNIQUE(cv),
+    UNIQUE(cv,e_mail,mot_de_passe),
     PRIMARY KEY(identifiant)
 );
 
