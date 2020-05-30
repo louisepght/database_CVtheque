@@ -6,8 +6,8 @@ CREATE TABLE info_complementaire(
 );
 
 CREATE TABLE formation(
-    titre VARCHAR UNIQUE NOT NULL,
-    etablissement VARCHAR UNIQUE NOT NULL,
+    titre VARCHAR NOT NULL,
+    etablissement VARCHAR NOT NULL,
     type_formation VARCHAR NOT NULL,
     date_debut DATE NOT NULL,
     date_fin DATE NOT NULL,
