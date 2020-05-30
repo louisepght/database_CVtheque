@@ -95,7 +95,6 @@ CREATE TABLE telephone(
     candidat VARCHAR,
     PRIMARY KEY(numero),
     FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
-    UNIQUE(candidat),
     CHECK(type_tel IN ('port_perso','port_pro','fixe_perso','fixe_pro'))
 );
 
