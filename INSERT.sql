@@ -21,7 +21,7 @@ VALUES('toit pour le nepal','2','resp com'),
 
 INSERT INTO CV
 VALUES('0101','rechrche emploi','francais','désactivé','01/05/2019','03/05/2019','1234'),
-('0102','recherche emploi','anglais','activé','01/05/2019','03/05/2019'),
+('0102','recherche emploi','anglais','activé','01/05/2019','03/05/2019','2345'),
 ('0103','recherche stage','anglais','confidentiel','01/05/2019','03/05/2019','2345');
 
 INSERT INTO candidat
@@ -61,6 +61,6 @@ VALUES('communication','0101'),
 ('gestion de projet','0102');
 
 INSERT INTO asso_formation
-VALUES('Ingénieur informatique','0101')
-('Ingénieur mecanique','0102');
+VALUES('UTC','0101'),
+('UTT','0102');
 
