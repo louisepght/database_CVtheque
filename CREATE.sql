@@ -70,7 +70,7 @@ CREATE TABLE referant(
 CREATE TABLE publication(
     ISBN INTEGER,
     titre VARCHAR NOT NULL,
-    date DATE NOT NULL,
+    date_publication DATE NOT NULL,
     contenu VARCHAR NOT NULL,
     candidat VARCHAR NOT NULL,
     PRIMARY KEY(ISBN),
