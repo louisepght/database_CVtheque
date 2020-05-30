@@ -75,7 +75,7 @@ CREATE TABLE publication(
     candidat VARCHAR NOT NULL,
     PRIMARY KEY(ISBN),
     FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
-    UNIQUE(candidat),
+    UNIQUE(candidat)
 );
 
 CREATE TABLE web(
