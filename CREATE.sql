@@ -76,7 +76,6 @@ CREATE TABLE publication(
     PRIMARY KEY(ISBN),
     FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     UNIQUE(candidat),
-    CHECK ((ISBN)=10 OR (ISBN)=13)
 );
 
 CREATE TABLE web(
