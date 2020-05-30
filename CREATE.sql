@@ -7,7 +7,7 @@ CREATE TABLE info_complementaire(
 
 CREATE TABLE formation(
     titre VARCHAR NOT NULL,
-    etablissement VARCHAR NOT NULL,
+    etablissement VARCHAR UNIQUE NOT NULL,
     type_formation VARCHAR NOT NULL,
     date_debut DATE NOT NULL,
     date_fin DATE NOT NULL,
@@ -139,12 +139,9 @@ CREATE TABLE asso_formation(
     formation VARCHAR NOT NULL,
     cv INTEGER NOT NULL,
     UNIQUE(formation,cv),
-    FOREIGN KEY (formation) REFERENCES formation(titre),
+    FOREIGN KEY (formation) REFERENCES formation(etablissement),
     FOREIGN KEY (cv) REFERENCES CV(IDCV)
 );
-
-
-
 
 
 
