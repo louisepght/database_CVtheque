@@ -1,12 +1,25 @@
+-- Database: cvtheque
+
+-- DROP DATABASE cvtheque;
+
+CREATE DATABASE cvtheque
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'French_France.1252'
+    LC_CTYPE = 'French_France.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+	
 CREATE TABLE candidat(
-    identifiant VARCHAR
+    identifiant VARCHAR,
     mot_de_passe VARCHAR NOT NULL,
     nom VARCHAR NOT NULL,
     prenom VARCHAR NOT NULL,
     e_mail  VARCHAR NOT NULL,
     cv INTEGER NOT NULL REFERENCES CV(IDCV),
     UNIQUE(cv),
-    PRIMARY KEY(identifiant),
+    PRIMARY KEY(identifiant)
 );
 
 
@@ -17,10 +30,10 @@ CREATE TABLE CV(
     statut VARCHAR NOT NULL,
     date_crea DATE NOT NULL,
     date_modif DATE NOT NULL,
-    info REFERENCES info_complementaire(IDINFO),
+    info_CV INTEGER REFERENCES info_complementaire(IDINFO),
     PRIMARY KEY(IDCV),
     CHECK(langue IN ('francais', 'anglais')),
-    CHECK(statut IN ('activé','confidentiel','désactivé')
+    CHECK(statut IN ('activé','confidentiel','désactivé'))
 );
 
 CREATE TABLE referant(
@@ -52,7 +65,7 @@ CREATE TABLE web(
     PRIMARY KEY(URL),
     FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     UNIQUE(candidat),
-    CHECK (type_web) IN (),
+    CHECK (type_web IN ('personnelle','professionnelle')),
     CHECK (SUBSTR(URL,1,8) ='https://')
 );
 
@@ -63,7 +76,7 @@ CREATE TABLE telephone(
     PRIMARY KEY(numero),
     FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     UNIQUE(candidat),
-    CHECK(type_tel) IN ('')
+    CHECK(type_tel IN ('port_perso','port_pro','fixe_perso','fixe_pro'))
 );
 
 CREATE TABLE experience(
@@ -125,23 +138,24 @@ CREATE TABLE niveau(
     langue VARCHAR,
     cv INTEGER,
     niveau VARCHAR NOT NULL,
-    FOREIGN KEY (langue) REFERENCES (langue),
+    FOREIGN KEY (langue) REFERENCES langue,
     FOREIGN KEY (cv) REFERENCES CV(IDCV)
 );
 
 CREATE TABLE asso_comp(
     competence VARCHAR,
     cv INTEGER,
-    FOREIGN KEY(competence) REFERENCES (competence),
-    FOREIGN KEY (cv) REFERENCES (CV)
+    FOREIGN KEY(competence) REFERENCES competence(nom),
+    FOREIGN KEY (cv) REFERENCES CV(IDCV)
 );
 
 CREATE TABLE asso_formation(
     formation VARCHAR,
     cv INTEGER,
-    FOREIGN KEY (formation) REFERENCES (formation),
+    FOREIGN KEY (formation) REFERENCES formation,
     FOREIGN KEY (cv) REFERENCES CV(IDCV)
 );
+
 
 
 
