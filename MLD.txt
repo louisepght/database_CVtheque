@@ -4,7 +4,7 @@ avec identifiant clé, mot_de_passe, nom, prenom, e_mail NOT NULL et cv UNIQUE N
 cv(#IDCV : INTEGER ,titre : VARCHAR, langue : ENUM, statut : ENUM, date_crea : DATE, date_modif : DATE, info => info_complementaire.IDINFO)
 On ajoute une clé étrangère car aucune clé potentielle, IDCV clé, et titre, langue, statut, date_crea, date_modif NOT NULL.
 
-referant(#nom_entreprise : VARCHAR, nom : VARCHAR, prenom : VARCHAR, #candidat => candidat.identifiant)
+referant(#nom_entreprise : VARCHAR, nom : VARCHAR, prenom : VARCHAR, candidat => candidat.identifiant)
 avec nom_entreprise clé, nom, prenom NOT NULL, et candidat UNIQUE et NOT NULL.
 
 publication(#ISBN : INTEGER, titre : VARCHAR, date : DATE, contenu : VARCHAR, candidat => candidat.identifiant)
@@ -16,7 +16,7 @@ avec URL clé, type NOT NULL et candidat NOT NULL et UNIQUE.
 telephone(#numero : VARCHAR, type_tel = ENUM, candidat => candidat.identifiant}
 avec numero clé, type NOT NULL, et candidat NOT NULL.
 
-experience(#nom_entreprise : VARCHAR, titre_poste : VARCHAR, date_debut : DATE, date_fin : DATE, fonction : VARCHAR, secteur_act : VARCHAR, #cv => CV.IDCV)
+experience(#nom_entreprise : VARCHAR, titre_poste : VARCHAR, date_debut : DATE, date_fin : DATE, fonction : VARCHAR, secteur_act : VARCHAR, cv => CV.IDCV)
 avec nom_entreprise clé, titre_poste, date_debut, date_fin, fonction et secteur d'activité NOT NULL, et cv UNIQUE NOT NULL.
 
 info_complementaire(#IDINFO : INTEGER, permis : ENUM, vehicule : ENUM)
