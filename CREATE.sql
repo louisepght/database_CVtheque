@@ -63,9 +63,8 @@ CREATE TABLE referant(
     nom_entreprise VARCHAR,
     nom VARCHAR NOT NULL,
     prenom VARCHAR NOT NULL,
-    candidat VARCHAR NOT NULL,
+    candidat VARCHAR NOT NULL REFERENCES candidat(identifiant),
     PRIMARY KEY(nom_entreprise),
-    FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     UNIQUE(candidat)
 );
 
@@ -74,18 +73,16 @@ CREATE TABLE publication(
     titre VARCHAR NOT NULL,
     date_publication DATE NOT NULL,
     contenu VARCHAR NOT NULL,
-    candidat VARCHAR NOT NULL,
+    candidat VARCHAR NOT NULL REFERENCES candidat(identifiant),
     PRIMARY KEY(ISBN),
-    FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     UNIQUE(candidat)
 );
 
 CREATE TABLE web(
     URL VARCHAR,
     type_web VARCHAR NOT NULL,
-    candidat VARCHAR NOT NULL,
+    candidat VARCHAR NOT NULL REFERENCES candidat(identifiant), 
     PRIMARY KEY(URL),
-    FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     UNIQUE(candidat),
     CHECK (type_web IN ('personnelle','professionnelle')),
     CHECK (SUBSTR(URL,1,8) ='https://')
@@ -94,9 +91,9 @@ CREATE TABLE web(
 CREATE TABLE telephone(
     numero VARCHAR(10),   
     type_tel VARCHAR NOT NULL,
-    candidat VARCHAR NOT NULL,
+    candidat VARCHAR NOT NULL REFERENCES candidat(identifiant),
     PRIMARY KEY(numero),
-    FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
+REFERENCES candidat(identifiant),
     CHECK(type_tel IN ('port_perso','port_pro','fixe_perso','fixe_pro'))
 );
 
@@ -107,9 +104,8 @@ CREATE TABLE experience(
     date_fin DATE NOT NULL,
     fonction VARCHAR NOT NULL,
     secteur_act VARCHAR NOT NULL,
-    cv INTEGER NOT NULL,
+    cv INTEGER NOT NULL REFERENCES CV(IDCV),
     PRIMARY KEY(nom_entreprise),
-    FOREIGN KEY(cv) REFERENCES CV(IDCV),
     UNIQUE (cv)
 );
 
