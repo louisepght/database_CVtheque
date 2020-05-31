@@ -2,7 +2,9 @@ CREATE TABLE info_complementaire(
     IDINFO INTEGER,
     permis VARCHAR,
     vehicule VARCHAR,
-    PRIMARY KEY(IDINFO)
+    PRIMARY KEY(IDINFO),
+    CHECK (permis IN ('oui','non')),
+    CHECK (vehicule IN ('oui','non'))
 );
 
 CREATE TABLE formation(
@@ -91,8 +93,8 @@ CREATE TABLE web(
 
 CREATE TABLE telephone(
     numero VARCHAR(10),   
-    type_tel VARCHAR,
-    candidat VARCHAR,
+    type_tel VARCHAR NOT NULL,
+    candidat VARCHAR NOT NULL,
     PRIMARY KEY(numero),
     FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
     CHECK(type_tel IN ('port_perso','port_pro','fixe_perso','fixe_pro'))
@@ -120,7 +122,7 @@ CREATE TABLE vie_associative(
 );
 
 CREATE TABLE niveau(
-    langue VARCHAR,
+    langue VARCHAR NOT NULL,
     cv INTEGER,
     niveau VARCHAR NOT NULL,
     FOREIGN KEY (langue) REFERENCES langue,
