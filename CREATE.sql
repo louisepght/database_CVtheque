@@ -93,7 +93,6 @@ CREATE TABLE telephone(
     type_tel VARCHAR NOT NULL,
     candidat VARCHAR NOT NULL REFERENCES candidat(identifiant),
     PRIMARY KEY(numero),
-REFERENCES candidat(identifiant),
     CHECK(type_tel IN ('port_perso','port_pro','fixe_perso','fixe_pro'))
 );
 
