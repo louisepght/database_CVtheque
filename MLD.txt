@@ -1,20 +1,20 @@
 candidat(#identifiant : VARCHAR, mot_de_passe : VARCHAR, nom : VARCHAR, prenom : VARCHAR, e_mail : VARCHAR, cv=>CV.IDCV) 
 avec identifiant clé, mot_de_passe, nom, prenom, e_mail NOT NULL et cv UNIQUE NOT NULL.
 
-cv(#IDCV : INTEGER ,titre : VARCHAR, langue : ENUM, statut : ENUM, date_crea : TIMESTAMP, date_modif : TIMESTAMP, info => info_complementaire.IDINFO)
+cv(#IDCV : INTEGER ,titre : VARCHAR, langue : ENUM, statut : ENUM, date_crea : DATE, date_modif : DATE, info => info_complementaire.IDINFO)
 On ajoute une clé étrangère car aucune clé potentielle, IDCV clé, et titre, langue, statut, date_crea, date_modif NOT NULL.
 
 referant(#nom_entreprise : VARCHAR, nom : VARCHAR, prenom : VARCHAR, #candidat => candidat.identifiant)
 avec nom_entreprise clé, nom, prenom NOT NULL, et candidat UNIQUE et NOT NULL.
 
-publication(#ISBN : INTEGER, titre : VARCHAR, date : DATETIME, contenu : VARCHAR, candidat => candidat.identifiant)
+publication(#ISBN : INTEGER, titre : VARCHAR, date : DATE, contenu : VARCHAR, candidat => candidat.identifiant)
 avec ISBN clé, titre, date, contenu NOT NULL, et candidat NOT NULL et UNIQUE.
 
 web(#URL : VARCHAR, type_web : ENUM, candidat => candidat.identifiant)
 avec URL clé, type NOT NULL et candidat NOT NULL et UNIQUE.
 
 telephone(#numero : VARCHAR, type_tel = ENUM, candidat => candidat.identifiant}
-avec numero clé, type NOT NULL, et candidat NOT NULL et UNIQUE.
+avec numero clé, type NOT NULL, et candidat NOT NULL.
 
 experience(#nom_entreprise : VARCHAR, titre_poste : VARCHAR, date_debut : DATE, date_fin : DATE, fonction : VARCHAR, secteur_act : VARCHAR, #cv => CV.IDCV)
 avec nom_entreprise clé, titre_poste, date_debut, date_fin, fonction et secteur d'activité NOT NULL, et cv UNIQUE NOT NULL.
