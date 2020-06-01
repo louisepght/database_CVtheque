@@ -51,8 +51,10 @@ VALUES('AMIS','stage opérateur','01/02/2019','30/03/2019','ouvrier','siderurgie
 ('valeo','chef de projet','01/02/2000','30/03/2010','qualite','equipementier','0102');
 
 INSERT INTO vie_associative
-VALUES('toit pour le nepal','louiselog','4','tresorier'),
-('skiut','paulinelog','1','resp com');
+VALUES('toit pour le nepal','louiselog','20/04/2013','20/04/2014','tresorier'),
+('skiut','paulinelog','20/04/2013','20/04/2013','resp com'),
+('skiut','louiselog','20/04/2015','20/04/2016','resp com')
+;
 
 INSERT INTO niveau
 VALUES('anglais','0101 ','courant'),
