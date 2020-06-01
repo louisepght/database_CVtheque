@@ -1,11 +1,12 @@
 INSERT INTO info_complementaire
 VALUES('1234','oui','non'),
-('2345','oui','non'),
-('3456','non','oui');
+('2345','non','oui');
 
 INSERT INTO formation
 VALUES('Ingénieur informatique','UTC','master','01/09/2020','30/06/2025','France','compiègne'),
-('Ingénieur informatique','UTT','master','01/09/2020','30/06/2025','France','Troyes');
+('Ingénieur informatique','UTT','master','01/09/2020','30/06/2025','France','Troyes'),
+('Designer industriel','UTC','master','01/09/2018','30/06/2021','France','compiègne')
+;
 
 INSERT INTO competence
 VALUES('communication'),
@@ -17,8 +18,8 @@ VALUES('anglais'),
 ('espagnol');
 
 INSERT INTO association
-VALUES('toit pour le nepal','2','resp com'),
-('skiut','1','tresorier');
+VALUES('toit pour le nepal'),
+('skiut');
 
 INSERT INTO CV
 VALUES('0101','rechrche emploi','francais','désactivé','01/05/2019','03/05/2019','1234'),
@@ -50,8 +51,8 @@ VALUES('AMIS','stage opérateur','01/02/2019','30/03/2019','ouvrier','siderurgie
 ('valeo','chef de projet','01/02/2000','30/03/2010','qualite','equipementier','0102');
 
 INSERT INTO vie_associative
-VALUES('toit pour le nepal','louiselog'),
-('skiut','paulinelog');
+VALUES('toit pour le nepal','louiselog','4','tresorier'),
+('skiut','paulinelog','1','resp com');
 
 INSERT INTO niveau
 VALUES('anglais','0101 ','courant'),
@@ -59,7 +60,9 @@ VALUES('anglais','0101 ','courant'),
 
 INSERT INTO asso_comp
 VALUES('communication','0101'),
-('gestion de projet','0102');
+('gestion de projet','0102'),
+('communication','0103'),
+('gestion de projet','0103');
 
 INSERT INTO asso_formation
 VALUES('UTC','Ingénieur informatique','0101'),
