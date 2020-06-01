@@ -126,8 +126,6 @@ Seul un candidat renseigne son téléphone.
 ### L'association 
 Les candidats peuvent avoir une vie associative présentée par une association caractérisée par : 
 -le nom de l'association 
--la durée pendant laquelle le candidat s'est engagé dans l'association (optionnel)
--le poste qu'occupait le candidat au sein de l'association (optionnel)
 
 Seul un candidat renseigne sa vie associative. Il peut s'être engagé dans aucune, une ou plusieurs associations.
 
