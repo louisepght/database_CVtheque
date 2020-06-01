@@ -113,8 +113,10 @@ CREATE TABLE experience(
 CREATE TABLE vie_associative(
     association VARCHAR,
     candidat VARCHAR,
-    duree INTEGER,
+    date_debut DATE,
+    date_fin DATE,
     poste VARCHAR,
+    UNIQUE (poste, candidat, date_debut, date_fin),
     FOREIGN KEY (association) REFERENCES association(nom),
     FOREIGN KEY(candidat) REFERENCES candidat(identifiant)
 );
