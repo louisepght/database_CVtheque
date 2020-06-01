@@ -1,6 +1,7 @@
 INSERT INTO info_complementaire
 VALUES('1234','oui','non'),
-('2345','oui','non');
+('2345','oui','non'),
+('3456','non','oui');
 
 INSERT INTO formation
 VALUES('Ingénieur informatique','UTC','master','01/09/2020','30/06/2025','France','compiègne'),
@@ -61,6 +62,7 @@ VALUES('communication','0101'),
 ('gestion de projet','0102');
 
 INSERT INTO asso_formation
-VALUES('UTC','0101'),
-('UTT','0102');
+VALUES('UTC','Ingénieur informatique','0101'),
+('UTT','Ingénieur informatique','0102');
+
 
