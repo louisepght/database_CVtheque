@@ -1,6 +1,7 @@
 INSERT INTO info_complementaire
-VALUES('1234','A1','non'),
-('2345','B1','oui');
+VALUES('1234','oui','non'),
+('2345','non','oui'),
+('3456','non','oui');
 
 INSERT INTO formation
 VALUES('Ingénieur informatique','UTC','master','01/09/2020','30/06/2025','France','compiègne'),
@@ -19,12 +20,15 @@ VALUES('anglais'),
 
 INSERT INTO association
 VALUES('toit pour le nepal'),
-('skiut');
+('skiut'),
+('EPI');
 
 INSERT INTO CV
 VALUES('0101','rechrche emploi','francais','désactivé','01/05/2019','03/05/2019','1234'),
 ('0102','recherche emploi','anglais','activé','01/05/2019','03/05/2019','2345'),
-('0103','recherche stage','anglais','confidentiel','01/05/2019','03/05/2019','2345');
+('0103','recherche stage','anglais','confidentiel','01/05/2019','03/05/2019','3456')
+
+;
 
 INSERT INTO candidat
 VALUES('louiselog','mdplouise','poughet','louise','louise.poughet@gmail.com','0101'),
@@ -69,5 +73,7 @@ VALUES('communication','0101'),
 INSERT INTO asso_formation
 VALUES('UTC','Ingénieur informatique','0101'),
 ('UTT','Ingénieur informatique','0102');
+
+
 
 
