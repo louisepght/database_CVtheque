@@ -1,6 +1,6 @@
 INSERT INTO info_complementaire
-VALUES('1234','oui','non'),
-('2345','non','oui');
+VALUES('1234','A1','non'),
+('2345','B1','oui');
 
 INSERT INTO formation
 VALUES('Ingénieur informatique','UTC','master','01/09/2020','30/06/2025','France','compiègne'),
