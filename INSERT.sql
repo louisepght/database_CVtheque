@@ -1,7 +1,7 @@
 INSERT INTO info_complementaire
-VALUES('1234','oui','non'),
-('2345','non','oui'),
-('3456','non','oui');
+VALUES('1234','A1','non'),
+('2345','B1','oui'),
+('3456','B1','oui');
 
 INSERT INTO formation
 VALUES('Ingénieur informatique','UTC','master','01/09/2020','30/06/2025','France','compiègne'),
@@ -72,7 +72,8 @@ VALUES('communication','0101'),
 
 INSERT INTO asso_formation
 VALUES('UTC','Ingénieur informatique','0101'),
-('UTT','Ingénieur informatique','0102');
+('UTT','Ingénieur informatique','0102'),
+('UTC','Designer industriel','0103');
 
 
 
