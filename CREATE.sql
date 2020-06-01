@@ -3,8 +3,8 @@ CREATE TABLE info_complementaire(
     permis VARCHAR,
     vehicule VARCHAR,
     PRIMARY KEY(IDINFO),
-    CHECK (permis IN ('oui','non')),
-    CHECK (vehicule IN ('oui','non'))
+    CHECK (vehicule IN ('oui','non')),
+    CHECK (permis IN ('AM','A1','A2','A','B1','B','C1','C','D1,','D','BE','C1E','CE','D1E','DE'))
 );
 
 CREATE TABLE formation(
