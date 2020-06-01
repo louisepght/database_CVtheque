@@ -24,6 +24,15 @@ candidat "0..N" -- "0..N" association : est-engagé >
 
 niveau .. (CV, langue)
 
+vie_associative .. (association, candidat)
+
+note left of vie_associative : la durée se compte en semestre
+
+class vie_associative{
+    duree INTEGER 
+    poste VARCHAR
+}
+
 class niveau {
     niveau VARCHAR
 }
@@ -105,8 +114,6 @@ class telephone {
 
 class association{
     nom VARCHAR  {KEY}
-    duree INTEGER 
-    poste VARCHAR
 }
 
 
