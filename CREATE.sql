@@ -31,8 +31,6 @@ CREATE TABLE langue(
 
 CREATE TABLE association(
     nom VARCHAR,
-    duree INTEGER,
-    poste VARCHAR,
     PRIMARY KEY(nom)
 );
 CREATE TABLE CV(
@@ -115,6 +113,8 @@ CREATE TABLE experience(
 CREATE TABLE vie_associative(
     association VARCHAR,
     candidat VARCHAR,
+    duree INTEGER,
+    poste VARCHAR,
     FOREIGN KEY (association) REFERENCES association(nom),
     FOREIGN KEY(candidat) REFERENCES candidat(identifiant)
 );
