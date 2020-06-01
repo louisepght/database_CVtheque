@@ -29,7 +29,8 @@ vie_associative .. (association, candidat)
 note left of vie_associative : la durée se compte en semestre
 
 class vie_associative{
-    duree INTEGER 
+    date_debut DATE
+    date_fin DATE
     poste VARCHAR
 }
 
