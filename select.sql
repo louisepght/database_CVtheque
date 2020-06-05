@@ -14,3 +14,4 @@ WHERE type_formation='BTS'
 SELECT (CV.IDCV, candidat.nom, candidat.prenom)
 FROM asso_comp,CV,competence,candidat
 WHERE competence.nom = 'communication' AND asso_comp.competence = competence.nom AND asso_comp.cv = CV.IDCV AND candidat.cv=CV.IDCV
+
