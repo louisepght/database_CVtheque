@@ -15,3 +15,42 @@ SELECT (CV.IDCV, candidat.nom, candidat.prenom)
 FROM asso_comp,CV,competence,candidat
 WHERE competence.nom = 'communication' AND asso_comp.competence = competence.nom AND asso_comp.cv = CV.IDCV AND candidat.cv=CV.IDCV
 
+--compétence BDD et 5 ans d'expérience 
+SELECT candidat.nom,candidat.prenom,candidat.identifiant, DATEDIFF(year,date_debut,date_fin) as duree
+FROM asso_comp 
+JOIN experience ON asso_comp.cv=experience.cv
+JOIN candidat ON experience.cv=candidat.cv
+WHERE asso_comp.competence='base de données' AND duree>5
+
+--synthétiser le parcours de chaque candidat en précisant 
+--	la liste de ses diplômes, 
+--	la liste des postes occupés, 
+--	le nombre d'expériences professionnelles acquises, 
+--	les langues maîtrisées;
+SELECT candidat.nom, candidat.prenom, candidat.identifiant, asso_formation.titre, experience.titre_poste,niveau.langue, COUNT(experience.titre_poste)
+FROM candidat
+JOIN asso_formation ON candidat.cv=asso_formation.cv
+JOIN experience ON experience.cv=asso_formation.cv
+JOIN niveau ON niveau.cv=experience.cv
+
+
+--la recherche multicritères des candidats en fonction 
+--	du nombre d'expériences professionnelles, 
+--	de l'année d'obtention de dernier diplôme, 
+--	du poste souhaité.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
