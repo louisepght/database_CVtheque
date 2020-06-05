@@ -16,7 +16,8 @@ CREATE TABLE formation(
     pays VARCHAR NOT NULL,
     ville VARCHAR NOT NULL,
     UNIQUE (titre,etablissement),
-    PRIMARY KEY(titre,etablissement)
+    PRIMARY KEY(titre,etablissement),
+    CHECK (date_debut < date_fin)
 );
 
 CREATE TABLE competence(
@@ -43,7 +44,8 @@ CREATE TABLE CV(
     info_CV INTEGER REFERENCES info_complementaire(IDINFO),
     PRIMARY KEY(IDCV),
     CHECK(langue IN ('francais', 'anglais')),
-    CHECK(statut IN ('activé','confidentiel','désactivé'))
+    CHECK(statut IN ('activé','confidentiel','désactivé')),
+    CHECK (date_crea < date_modif)
 );
 
 CREATE TABLE candidat(
@@ -106,7 +108,8 @@ CREATE TABLE experience(
     secteur_act VARCHAR NOT NULL,
     cv INTEGER NOT NULL REFERENCES CV(IDCV),
     PRIMARY KEY(nom_entreprise),
-    UNIQUE (cv)
+    UNIQUE (cv),
+    CHECK (date_debut < date_fin)
 );
 
 
@@ -118,7 +121,8 @@ CREATE TABLE vie_associative(
     poste VARCHAR,
     UNIQUE (poste, candidat, date_debut, date_fin),
     FOREIGN KEY (association) REFERENCES association(nom),
-    FOREIGN KEY(candidat) REFERENCES candidat(identifiant)
+    FOREIGN KEY(candidat) REFERENCES candidat(identifiant),
+    CHECK (date_debut < date_fin)
 );
 
 CREATE TABLE niveau(
