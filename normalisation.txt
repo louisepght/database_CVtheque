@@ -1,0 +1,79 @@
+fichier .pdf contenant les étapes de normalisation de votre modèle et le MLD normalisé. (fichier différent de celui rendu pour le MLD) 
+Pour chaque relation, il faudra déterminer les dépendances fonctionnelles et les clés.
+Transformer chaque relation en 3NF.
+Attention, faites attentions aux clés artificielles lors de la normalisation.
+Si vous modifiez votre MLD lors de la normalisation, il faudra aussi mettre à jour le MCD.
+
+Dépendances fonctionnelles : 
+Candidat :
+identifiant->mot_de_passe
+identifiant->nom
+identifiant->prenom
+identifiant->e_mail
+
+CV :
+
+
+Référant : 
+
+
+Publication: 
+ISBN->titre
+ISBN->date
+ISBN->contenu
+
+
+Web :
+URL 
+type_web
+
+téléphone : 
+numero
+type_tel
+
+experience : 
+nom_entreprise ->secteur_act
+titre_poste_>fontion
+date_debut
+date_fin
+
+info_complementaire : 
+permis
+vehicule ->permis  (on ne peut pas avoir un véhicule sans avoir le permis)
+
+formation : 
+titre->type_formation
+etablissement->ville
+ville->pays
+date_debut
+date_fin
+
+compétence : 
+nom 
+
+langue : 
+langue
+
+association: 
+nom 
+
+vie_associative : 
+date_debut
+date_fin
+poste
+
+niveau :
+niveau
+
+
+
+
+
+
+
+
+
+
+
+
+
