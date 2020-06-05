@@ -20,11 +20,11 @@ candidat "1" -- "0..N" web : a >
 
 candidat "1" -- "1..N" telephone : possede >
 
-candidat "0..N" -- "0..N" association : est-engagé >
+CV "0..N" -- "0..N" association : est-engagé >
 
 niveau .. (CV, langue)
 
-vie_associative .. (association, candidat)
+vie_associative .. (association, CV)
 
 note left of vie_associative : la durée se compte en semestre
 
