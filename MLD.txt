@@ -17,13 +17,13 @@ telephone(#numero : VARCHAR, type_tel = ENUM, candidat => candidat.identifiant}
 avec numero clé, type NOT NULL, et candidat NOT NULL.
 
 experience(#nom_entreprise : VARCHAR, titre_poste : VARCHAR, date_debut : DATE, date_fin : DATE, fonction : VARCHAR, secteur_act : VARCHAR, cv => CV.IDCV)
-avec nom_entreprise clé, titre_poste, date_debut, date_fin, fonction et secteur d'activité NOT NULL, et cv UNIQUE NOT NULL.
+avec nom_entreprise clé, titre_poste, date_debut, date_fin, fonction et secteur d'activité NOT NULL, et cv UNIQUE NOT NULL et date_debut < date_fin.
 
 info_complementaire(#IDINFO : INTEGER, permis : ENUM, vehicule : ENUM)
 avec IDINFO clé étrangère car aucune clé candidate.
 
 formation(#titre : VARCHAR, #etablissement : VARCHAR, type_formation : VARCHAR, date_debut : DATE, date_fin : DATE,  pays : VARCHAR, ville : VARCHAR) 
-avec (titre, etablissement) clé, type, date_debut, date_fin, pays et ville NOT NULL.
+avec (titre, etablissement) clé, type, date_debut, date_fin, pays et ville NOT NULL et date_debut < date_fin.
 
 competence(#nom : VARCHAR)
 avec nom clé.
@@ -31,12 +31,12 @@ avec nom clé.
 langue(#langue : VARCHAR) 
 avec langue clé.
 
-association(#nom : VARCHAR, duree : INTEGER, poste : VARCHAR) 
+association(#nom : VARCHAR) 
 avec nom clé.
 
 ---transformation N:M---
-vie_associative(#association => association, #candidat => candidat)
-avec (association, candidat) clé.
+vie_associative(date_debut : DATE, date_fin : DATE, poste : VARCHAR, #association => association, #cv => CV)
+avec (association, cv) clé, date_debut NOT NULL, date_debut < date_fin.
 
 niveau(#langue => langue, #cv => CV, niveau = VARCHAR)
 avec (langue, cv) clé, et langue, cv, niveau NOT NULL. 
