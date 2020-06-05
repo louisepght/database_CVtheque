@@ -3,24 +3,38 @@ Pour chaque relation, il faudra déterminer les dépendances fonctionnelles et l
 Transformer chaque relation en 3NF.
 Attention, faites attentions aux clés artificielles lors de la normalisation.
 Si vous modifiez votre MLD lors de la normalisation, il faudra aussi mettre à jour le MCD.
-
+Première étape : modélisation conceptuelle des données (voir UML) 
+Deuxième étape : modèle relationnel (voir MLD)
+Troisième étape : dépendances fonctionnelle s
 Dépendances fonctionnelles : 
 Candidat :
-identifiant->mot_de_passe
-identifiant->nom
-identifiant->prenom
-identifiant->e_mail
+identifiant->mot_de_passe,
+identifiant->nom,
+identifiant->prenom,
+identifiant->e_mail,
+(nom,prenom)->e-mail DFélémentaire car ni nom ni prenom ne détermine indépendemment e_mail
+Clé : identifiant 
+
 
 CV :
+titre
+langue
+statut
+date_crea
+date_modif
 
 
 Référant : 
+nom 
+prenom 
+nom_entreprise
 
 
 Publication: 
 ISBN->titre
 ISBN->date
 ISBN->contenu
+Clé : ISBN
 
 
 Web :
@@ -28,25 +42,30 @@ URL
 type_web
 
 téléphone : 
-numero
-type_tel
+numero->type_tel
+Clé : numéro 
 
 experience : 
 nom_entreprise ->secteur_act
-titre_poste_>fontion
+nom_entreprise->titre_poste
+titre_poste->fonction
 date_debut
 date_fin
+Clé : nom_entreprise (selon le graphe des DFE, on peut voir que nom_entreprise détemine tous les autres attributs)
 
 info_complementaire : 
-permis
 vehicule ->permis  (on ne peut pas avoir un véhicule sans avoir le permis)
+Clé : véhicule 
 
 formation : 
 titre->type_formation
 etablissement->ville
+etablissement->type_formation 
+ville->type_formation
 ville->pays
 date_debut
 date_fin
+Clé : 
 
 compétence : 
 nom 
@@ -64,6 +83,10 @@ poste
 
 niveau :
 niveau
+
+Quatrième étape : Formes normales 
+Cinquième étape : décomposition 
+Sixième étape : implémentation SQL/LDD
 
 
 
