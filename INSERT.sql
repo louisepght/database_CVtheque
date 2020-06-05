@@ -56,7 +56,7 @@ VALUES('AMIS','stage opérateur','01/02/2019','30/03/2019','ouvrier','siderurgie
 
 INSERT INTO vie_associative
 VALUES('toit pour le nepal','louiselog','20/04/2013','20/04/2014','tresorier'),
-('skiut','paulinelog','20/04/2013','20/04/2013','resp com'),
+('skiut','paulinelog','20/04/2013','20/04/2015','resp com'),
 ('skiut','louiselog','20/04/2015','20/04/2016','resp com')
 ;
 
