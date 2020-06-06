@@ -11,11 +11,13 @@ FROM formation
 WHERE type_formation='BTS'
 
 --sélection de la compétence commmunication -> à remplacer par base de données
+--------fontionne ajouter 5 ans d'experience------------
 SELECT (CV.IDCV, candidat.nom, candidat.prenom)
 FROM asso_comp,CV,competence,candidat
 WHERE competence.nom = 'communication' AND asso_comp.competence = competence.nom AND asso_comp.cv = CV.IDCV AND candidat.cv=CV.IDCV
 
 --compétence BDD et 5 ans d'expérience 
+------ne fonctionne pas-------------
 SELECT candidat.nom,candidat.prenom,candidat.identifiant, DATEDIFF(year,date_debut,date_fin) as duree
 FROM asso_comp 
 JOIN experience ON asso_comp.cv=experience.cv
@@ -38,9 +40,9 @@ JOIN asso_formation ON asso_formation.cv=CV.IDCV
 
 
 --la recherche multicritères des candidats en fonction 
---	du nombre d'expériences professionnelles, 
---	de l'année d'obtention de dernier diplôme, 
---	du poste souhaité.
+--	du nombre d'expériences professionnelles,  
+--	de l'année d'obtention de dernier diplôme, OK
+--	du poste souhaité.  OK
 -----fontionne------------
 SELECT candidat.nom, candidat.prenom, candidat.identifiant, CV.IDCV
 FROM experience JOIN CV ON experience.cv=CV.IDCV
