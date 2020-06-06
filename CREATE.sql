@@ -108,7 +108,6 @@ CREATE TABLE experience(
     secteur_act VARCHAR NOT NULL,
     cv INTEGER NOT NULL REFERENCES CV(IDCV),
     PRIMARY KEY(nom_entreprise),
-    UNIQUE (cv),
     CHECK (date_debut < date_fin)
 );
 
