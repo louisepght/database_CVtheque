@@ -38,6 +38,25 @@ JOIN niveau ON niveau.cv=experience.cv
 --	du nombre d'expériences professionnelles, 
 --	de l'année d'obtention de dernier diplôme, 
 --	du poste souhaité.
+SELECT (CV.IDCV, candidat.nom, candidat.prenom, experience.titre_poste)
+FROM CV, IDCV, experience
+WHERE experience.titre_poste = 'chef de projet'
+
+SELECT (CV.IDCV, candidat.nom, candidat.prenom, experience.titre_poste)
+FROM CV, IDCV, experience
+WHERE experience.titre_poste = 'ingénieur informatique' AND experience.cv = CV.IDCV AND cv.candidat = CV.IDCV
+
+SELECT (CV.IDCV, candidat.nom, candidat.prenom, experience.titre_poste)
+FROM CV, candidat, experience
+WHERE experience.titre_poste = 'chef de projet' AND experience.cv = CV.IDCV AND cv.candidat = CV.IDCV
+
+SELECT (CV.IDCV, candidat.nom, candidat.prenom, formation.date_fin)
+FROM CV, candidat, formation 
+WHERE 
+
+
+
+
 
 
 
