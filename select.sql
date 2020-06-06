@@ -43,14 +43,14 @@ SELECT candidat.nom, candidat.prenom, candidat.identifiant, CV.IDCV
 FROM experience JOIN CV ON experience.cv=CV.IDCV
 JOIN candidat ON candidat.cv=CV.IDCV
 WHERE experience.titre_poste='chef de projet'
------fonctionne----------
+-------------------------------------
 
-
-
-SELECT COUNT(experience.titre_poste) AS nb, candidat.identifiant
-FROM experience JOIN CV ON experience.cv=CV.IDCV
-JOIN candidat ON candidat.cv=IDCV
-WHERE nb=1
+------petit morceau qui fonctionne------
+SELECT *
+FROM formation JOIN asso_formation 
+ON (etablissement,titre)=(formation_etablissement,formation_titre)
+WHERE formation.date_fin='2025-06-30' 
+-------------------------------------
 
 
 
