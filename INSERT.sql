@@ -52,7 +52,9 @@ VALUES('0602030405','port_perso','louiselog'),
 
 INSERT INTO experience
 VALUES('AMIS','stage opérateur','01/02/2019','30/03/2019','ouvrier','siderurgie','0101'),
-('valeo','chef de projet','01/02/2000','30/03/2010','qualite','equipementier','0102');
+('valeo','chef de projet','01/02/2000','30/03/2010','qualite','equipementier','0102'),
+('schneider','assistant chef de projet','20/06/1995','10/09/1999','controle','electronique','0102')
+('airliquide','stage ingénieur','01/02/1994','30/06/1994','BE','gaz','0102');
 
 INSERT INTO vie_associative
 VALUES('toit pour le nepal','louiselog','20/04/2013','20/04/2014','tresorier'),
@@ -62,7 +64,10 @@ VALUES('toit pour le nepal','louiselog','20/04/2013','20/04/2014','tresorier'),
 
 INSERT INTO niveau
 VALUES('anglais','0101 ','courant'),
-('allemand','0103 ','bilingue');
+('allemand','0103 ','bilingue'),
+('anglais','0103 ','bilingue'),
+('espagnol','0103 ','scolaire')
+;
 
 INSERT INTO asso_comp
 VALUES('communication','0101'),
