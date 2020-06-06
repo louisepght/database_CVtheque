@@ -45,10 +45,12 @@ JOIN candidat ON candidat.cv=CV.IDCV
 WHERE experience.titre_poste='chef de projet'
 -------------------------------------
 
-------petit morceau qui fonctionne------
-SELECT *
+------------fonctionne-------------
+SELECT candidat.nom, candidat.prenom, candidat.identifiant, CV.IDCV
 FROM formation JOIN asso_formation 
 ON (etablissement,titre)=(formation_etablissement,formation_titre)
+JOIN CV ON CV.IDCV=asso_formation.cv
+JOIN candidat ON candidat.cv=CV.IDCV
 WHERE formation.date_fin='2025-06-30' 
 -------------------------------------
 
