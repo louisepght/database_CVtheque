@@ -27,11 +27,14 @@ WHERE asso_comp.competence='base de données' AND duree>5
 --	la liste des postes occupés, 
 --	le nombre d'expériences professionnelles acquises, 
 --	les langues maîtrisées;
-SELECT candidat.nom, candidat.prenom, candidat.identifiant, asso_formation.titre, experience.titre_poste,niveau.langue, COUNT(experience.titre_poste)
-FROM candidat
-JOIN asso_formation ON candidat.cv=asso_formation.cv
-JOIN experience ON experience.cv=asso_formation.cv
-JOIN niveau ON niveau.cv=experience.cv
+-------fonctionne mais il manque nb expérience------------------
+SELECT CV.IDCV, niveau.langue, niveau.niveau, experience.titre_poste,asso_formation.formation_titre
+FROM niveau JOIN CV ON niveau.cv=CV.IDCV
+JOIN experience ON experience.cv=CV.IDCV 
+JOIN asso_formation ON asso_formation.cv=CV.IDCV
+---------------------------------------------------------------
+
+
 
 
 --la recherche multicritères des candidats en fonction 
