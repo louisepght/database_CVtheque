@@ -1,0 +1,48 @@
+candidat(#identifiant : VARCHAR, mot_de_passe : VARCHAR, nom : VARCHAR, prenom : VARCHAR, e_mail : VARCHAR, cv=>CV.IDCV) 
+avec identifiant clé, mot_de_passe, nom, prenom, e_mail NOT NULL et cv UNIQUE NOT NULL.
+
+cv(#IDCV : INTEGER ,titre : VARCHAR, langue : ENUM, statut : ENUM, date_crea : DATE, date_modif : DATE, info => info_complementaire.IDINFO)
+On ajoute une clé étrangère car aucune clé potentielle, IDCV clé, et titre, langue, statut, date_crea, date_modif NOT NULL.
+
+referant(#IDref : VARCHAR,nom_entreprise : VARCHAR, nom : VARCHAR, prenom : VARCHAR, candidat => candidat.identifiant)
+avec IDref clé, nom_entreprise, nom, prenom NOT NULL, et candidat UNIQUE et NOT NULL.
+
+publication(#ISBN : INTEGER, titre : VARCHAR, date : DATE, contenu : VARCHAR, candidat => candidat.identifiant)
+avec ISBN clé, titre, date, contenu NOT NULL, et candidat NOT NULL et UNIQUE.
+
+web(#IDweb : VARCHAR, URL : VARCHAR, type_web : ENUM, candidat => candidat.identifiant)
+avec IDweb clé, URL UNIQUE NOT NULL, type NOT NULL et candidat NOT NULL et UNIQUE.
+
+telephone(#IDtel : VARCHAR, numero : VARCHAR, type_tel = ENUM, candidat => candidat.identifiant}
+avec IDtel clé, numero UNQIUE NOT NULL, type NOT NULL, et candidat NOT NULL.
+
+experience(#IDexp : VARCHAR, nom_entreprise : VARCHAR, titre_poste : VARCHAR, date_debut : DATE, date_fin : DATE, fonction : VARCHAR, secteur_act : VARCHAR, cv => CV.IDCV)
+avec IDexp clé, nom_entreprise UNIQUE NOT NULL, titre_poste, date_debut, date_fin, fonction et secteur d'activité NOT NULL, et cv UNIQUE NOT NULL et date_debut < date_fin.
+
+info_complementaire(#IDINFO : INTEGER, permis : ENUM, vehicule : ENUM)
+avec IDINFO clé étrangère car aucune clé candidate.
+
+formation(#IDfor : VARCHAR, titre : VARCHAR, etablissement : VARCHAR, type_formation : VARCHAR, date_debut : DATE, date_fin : DATE,  pays : VARCHAR, ville : VARCHAR) 
+avec IDfor clé, (titre, etablissement)UNIQUE NOT NULL, type, date_debut, date_fin, pays et ville NOT NULL et date_debut < date_fin.
+
+competence(#nom : VARCHAR)
+avec nom clé.
+
+langue(#langue : VARCHAR) 
+avec langue clé.
+
+association(#nom : VARCHAR) 
+avec nom clé.
+
+---transformation N:M---
+vie_associative(#IDvie : VARCHAR, date_debut : DATE, date_fin : DATE, poste : VARCHAR, #association => association, #cv => CV)
+avec IDvie clé, (association, cv)UNIQUE NOT NULL , date_debut NOT NULL, date_debut < date_fin.
+
+niveau(#langue => langue, #cv => CV, niveau = VARCHAR)
+avec (langue, cv) clé, et langue, cv, niveau NOT NULL. 
+
+assoc_comp(#IDAC : VARCHAR, #competence => competence, #cv => CV)
+avec IDAC clé, (competence, cv)UNIQUE, NOT NULL.
+
+assoc_formation(#IDAF : VARCHAR, #formation => formation, #cv => CV)
+avec IDAF clé, (formation, cv) UNIQUE NOT NULL.
