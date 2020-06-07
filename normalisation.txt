@@ -54,8 +54,7 @@ ISBN->candidat //ici le candidat est désigné comme l'auteur
 ISBN
 3-Transformation en 3NF : 
 publication(#ISBN, titre,date, contenu, candidat) 
-Cette relation est en 3NF car en 1NF (tous les attributs sont atomiques et il existe une clé),en 2NF (les attributs n'appartenant pas à une clé candidate ne dépendent pas d'une partie seulement d'une clé candidate), et en 3NF car les attributs n'appartenant à aucune clé candidate ne dépendent que de la clé candidate ISBN. 
-
+Il n'y a pas de transformation car cette relation est en 3NF car en 1NF (tous les attributs sont atomiques et il existe une clé),en 2NF (les attributs n'appartenant pas à une clé candidate ne dépendent pas d'une partie seulement d'une clé candidate), et en 3NF car les attributs n'appartenant à aucune clé candidate ne dépendent que de la clé candidate ISBN. 
 
 
 Web :
@@ -142,6 +141,13 @@ cv
 asso_formation : 
 formation 
 cv
+
+
+MLD normalisé : 
+Candidat(#identifiant,mot_de_passe,personne=>personne,cv)
+Personne(#nom,#prenom,e-mail)
+experience(#nom_entreprise, secteur_act, poste=>poste, date_debut, date_fin, cv) 
+poste(#titre_poste, fonction)
 
 
 
