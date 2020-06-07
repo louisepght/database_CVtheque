@@ -59,6 +59,12 @@ JOIN candidat ON candidat.cv=CV.IDCV
 WHERE formation.date_fin='2025-06-30' 
 -------------------------------------
 
+-------ébauche nombre d'experience----------
+SELECT COUNT (*)
+FROM experience
+WHERE experience.cv=102
+------------------------------------------
+
 
 
 
