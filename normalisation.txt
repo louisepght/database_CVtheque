@@ -83,8 +83,7 @@ info_complementaire :
 vehicule 
 permis  
 Il n'existe pas de dépendance fonctionnelle dans cette classe. 
-2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDinf.
-
+2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDINFO comme nous l'avions fait.
 
 
 formation : 
@@ -95,115 +94,63 @@ etablissement->type_formation
 ville->pays
 date_debut
 date_fin
-Clé : titre
-formation(#etablissement, #ville=>ville, #titre=>titre, date_debut, date_fin) 
-titre(#titre, type_formation)
-ville(#ville, pays)
+Il n'existe pas de dépendance fonctionnelle dans cette classe. 
+2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDfor.
 
 
 compétence : 
-nom clé
-competence(#nom)
+1-dépendance fonctionnelle
+nom 
+Il n'y a qu'un attribut.
+2-clé : nom, seul attribut.
+3-
 
 langue : 
-langue clé
-langue(#langue)
+1- dépendance fonctionnelle
+langue
+Il n'y a qu'un attribut. 
+2- clé : langue, seul attribut.
+3-
 
 association: 
-nom  clé
-association(#nom)
+1- dépendance fonctionnelle
+nom
+Il n'y a qu'un attribut. 
+2- clé : nom, seul attribut.
+3-
 
 vie_associative : 
+1- dépendance fonctionnelle
 date_debut
 date_fin
 poste
 association
 cv
+Il n'existe aucune dépendance fonctionnelle dans cette classe.
+2- clé : il n'existe aucun attribut qui détermine tous les autres donc on ajoute une clé artificielle comme IDvie
+3-
 
 niveau :
+1- dépendance fonctionnelle
 niveau 
 langue 
 cv
+Il n'existe aucune dépendance fonctionnelle dans cette classe.
+2- clé : il n'existe aucun attribut qui détermine tous les autres donc on ajoute une clé artificielle comme IDniv
+3-
 
 asso_comp :
+1- dépendance fonctionnelle
 competence
 cv
+Il n'existe aucune dépendance fonctionnelle dans cette classe.
+2- clé : il n'existe aucun attribut qui détermine tous les autres donc on ajoute une clé artificielle comme IDAC
+3-
 
 asso_formation : 
+1- dépendance fonctionnelle
 formation 
 cv
-
-
-MLD normalisé : 
-
-
-Candidat(#identifiant : VARCHAR,mot_de_passe : VARCHAR , personne=>personne, cv=>CV)
-avec identifiant clé, mot_de_passe, personne, cv UNIQUE et NOT NULL
-
-Personne(#nom : VARCHAR,#prenom : VARCHAR ,e_mail : VARCHAR)
-avec (nom,prenom) clé et e_mail UNIQUE.
-
-cv(#IDCV : INTEGER ,titre : VARCHAR, langue : ENUM, statut : ENUM, date_crea : DATE, date_modif : DATE, info => info_complementaire.IDINFO)
-On ajoute une clé étrangère car aucune clé potentielle, IDCV clé, et titre, langue, statut, date_crea, date_modif NOT NULL.
-
-referant(#nom_entreprise : VARCHAR, nom : VARCHAR, prenom : VARCHAR, candidat => candidat.identifiant)
-avec nom_entreprise clé, nom, prenom NOT NULL, et candidat UNIQUE et NOT NULL.
-
-publication(#ISBN : INTEGER, titre : VARCHAR, date : DATE, contenu : VARCHAR, candidat => candidat.identifiant)
-avec ISBN clé, titre, date, contenu NOT NULL, et candidat NOT NULL et UNIQUE.
-
-web(#URL : VARCHAR, type_web : ENUM, candidat => candidat.identifiant)
-avec URL clé, type NOT NULL et candidat NOT NULL et UNIQUE.
-
-telephone(#numero : VARCHAR, type_tel = ENUM, candidat => candidat.identifiant}
-avec numero clé, type NOT NULL, et candidat NOT NULL.
-
-experience(#nom_entreprise, secteur_act, poste=>poste, date_debut, date_fin, cv) 
-avec nom_entreprise clé, secteur_act, date_debut, date_fin, cv, poste NOT NULL
-
-poste(#titre_poste : VARCHAR , fonction : VARCHAR)
-avec titre_poste clé, et fonction NOT NULL.
-
-info_complementaire(#IDINFO : INTEGER, permis : ENUM, vehicule : ENUM)
-avec IDINFO clé étrangère car aucune clé candidate.
-
-formation(#titre : VARCHAR, #etablissement : VARCHAR, type_formation : VARCHAR, date_debut : DATE, date_fin : DATE,  pays : VARCHAR, ville : VARCHAR) 
-avec (titre, etablissement) clé, type, date_debut, date_fin, pays et ville NOT NULL et date_debut < date_fin.
-
-competence(#nom : VARCHAR)
-avec nom clé.
-
-langue(#langue : VARCHAR) 
-avec langue clé.
-
-association(#nom : VARCHAR) 
-avec nom clé.
-
----transformation N:M---
-vie_associative(date_debut : DATE, date_fin : DATE, poste : VARCHAR, #association => association, #cv => CV)
-avec (association, cv) clé, date_debut NOT NULL, date_debut < date_fin.
-
-niveau(#langue => langue, #cv => CV, niveau = VARCHAR)
-avec (langue, cv) clé, et langue, cv, niveau NOT NULL. 
-
-assoc_comp(#competence => competence, #cv => CV)
-avec (competence, cv) clé.
-
-assoc_formation(#formation => formation, #cv => CV)
-avec (formation, cv) clé.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Il n'existe aucune dépendance fonctionnelle dans cette classe.
+2- clé : il n'existe aucun attribut qui détermine tous les autres donc on ajoute une clé artificielle comme IDAF
+3-
