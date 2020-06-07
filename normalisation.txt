@@ -146,10 +146,10 @@ cv
 MLD normalisé : 
 
 
-Candidat(#identifiant,mot_de_passe,personne=>personne,cv=>cv)
+Candidat(#identifiant : VARCHAR,mot_de_passe : VARCHAR , personne=>personne, cv=>CV)
 avec identifiant clé, mot_de_passe, personne, cv UNIQUE et NOT NULL
 
-Personne(#nom,#prenom,e_mail)
+Personne(#nom : VARCHAR,#prenom : VARCHAR ,e_mail : VARCHAR)
 avec (nom,prenom) clé et e_mail UNIQUE.
 
 cv(#IDCV : INTEGER ,titre : VARCHAR, langue : ENUM, statut : ENUM, date_crea : DATE, date_modif : DATE, info => info_complementaire.IDINFO)
@@ -170,7 +170,7 @@ avec numero clé, type NOT NULL, et candidat NOT NULL.
 experience(#nom_entreprise, secteur_act, poste=>poste, date_debut, date_fin, cv) 
 avec nom_entreprise clé, secteur_act, date_debut, date_fin, cv, poste NOT NULL
 
-poste(#titre_poste, fonction)
+poste(#titre_poste : VARCHAR , fonction : VARCHAR)
 avec titre_poste clé, et fonction NOT NULL.
 
 info_complementaire(#IDINFO : INTEGER, permis : ENUM, vehicule : ENUM)
