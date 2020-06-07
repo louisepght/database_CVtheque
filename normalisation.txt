@@ -16,14 +16,7 @@ identifiant->e_mail,
 identifiant->cv,
 (nom,prenom)->e-mail DFélémentaire car ni nom ni prenom ne détermine indépendemment e_mail
 2-Clé : 
-identifiant 
-3-Transformation en 3NF : 
-Candidat(#identifiant,mot_de_passe,personne=>personne,cv)
-Personne(#nom,#prenom,e-mail)
-Tous les attributs sont atomiques t il existe au moins une clé pour chaque relation (donc ce schéma est en 1NF), les attributs n'appartenant pas à une clé candidate ne dépendent pas d'une partie seulement d'une clé candidate (le schéma est en 2NF), et les attributs n'appartenant à aucune clé candidate ne dépend directement que de clés candidates. 
-Donc le schéma est en 3NF. 
-En effet, mot_de_passe et cv dépendent d'identifiant et seulement d'identifiant qui est une clé, et e-mail dépend de (nom,prénom) qui est une clé ; de plus e-mail de dépend ni de prénom seul ni de nom seul. 
-
+identifiant est un lcé car il détermine tous les autres attributs.
 
 CV :
 1-Dépendances fonctionnelles
@@ -34,6 +27,8 @@ date_crea
 date_modif
 info
 Il n'existe pas de dépendance fonctionnelle dans cette classe. 
+2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDCV comme on l'avait fait. 
+3- Pas de transformation à faire.
 
 Référant : 
 1-Dépendances fonctionnelles
@@ -42,7 +37,8 @@ prenom
 nom_entreprise
 candidat
 Il n'existe pas de dépendance fonctionnelle dans cette classe.
-
+2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDref qui détermine tous les autres attributs. 
+3-
 
 Publication: 
 1-Dépendances fonctionnelles
@@ -51,26 +47,26 @@ ISBN->date
 ISBN->contenu
 ISBN->candidat //ici le candidat est désigné comme l'auteur
 2-Clé :
-ISBN
+ISBN car il détermine tous les autres atttributs. 
 3-Transformation en 3NF : 
 publication(#ISBN, titre,date, contenu, candidat) 
 Il n'y a pas de transformation car cette relation est en 3NF car en 1NF (tous les attributs sont atomiques et il existe une clé),en 2NF (les attributs n'appartenant pas à une clé candidate ne dépendent pas d'une partie seulement d'une clé candidate), et en 3NF car les attributs n'appartenant à aucune clé candidate ne dépendent que de la clé candidate ISBN. 
 
-
 Web :
 1-Dépendances fonctionnelles
-URL->candidat
+URL
 type_web
-
+candidat
+Il n'existe pas de dépendance fonctionnelle dans cette classe. 
+2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDweb.
 
 téléphone : 
 1-Dépendances fonctionnelles
-numero->type_tel
-numero->candidat
-2-Clé : 
-numero 
-3-Transformation en 3NF
-téléphone(#numero, type_tel, candidat)
+numero
+type_tel
+candidat
+Il n'existe pas de dépendance fonctionnelle dans cette classe. 
+2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDtel.
 
 experience : 
 1-Dépendances fonctionnelles
@@ -80,21 +76,16 @@ titre_poste->fonction
 date_debut
 date_fin
 cv
-2-Clé :  nom_entreprise (selon le graphe des DFE, on peut voir que nom_entreprise détermine tous les autres attributs)
-3-Transformation en 3NF
-experience(#nom_entreprise, secteur_act, poste=>poste, date_debut, date_fin, cv) 
-poste(#titre_poste, fonction)
-Cette relation est en 3NF car en 1NF (tous les attributs sont atomiques et il existe une clé),
-en 2NF (les attributs n'appartenant pas à une clé candidate ne dépendent pas d'une partie seulement d'une clé candidate
-secteur_act dépend entièrement de nom_entreprise, et fonction dépend entièrement de titre_poste), 
-et en 3NF car les attributs n'appartenant à aucune clé candidate ne dépendent que des clés candidates nom_entreprise et titre_poste. 
-
-
+Il n'existe pas de dépendance fonctionnelle dans cette classe. 
+2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDexp.
 
 info_complementaire : 
-vehicule -> permis  (on ne peut pas avoir un véhicule sans avoir le permis)
-Clé : véhicule 
-BCNF : info_complementaire(#vehicule, permis)
+vehicule 
+permis  
+Il n'existe pas de dépendance fonctionnelle dans cette classe. 
+2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDinf.
+
+
 
 formation : 
 titre->type_formation
