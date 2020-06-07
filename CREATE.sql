@@ -137,6 +137,7 @@ CREATE TABLE asso_comp(
     cv INTEGER,
     FOREIGN KEY(competence) REFERENCES competence(nom),
     FOREIGN KEY (cv) REFERENCES CV(IDCV)
+    UNIQUE (competence,cv)
 );
 
 CREATE TABLE asso_formation(
