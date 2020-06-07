@@ -16,7 +16,9 @@ identifiant->e_mail,
 identifiant->cv
 2-Clé : 
 identifiant est une clé car il détermine tous les autres attributs.
-3- Aucune transformation à faire car le schéma est déjà en 3NF. 
+3- Aucune transformation à faire car le schéma est déjà en 3NF en effet 1NF car clés et attributs atomiques, 
+la clé est composée d'un seul attribut (2NF) et tous les attributs ne dépendent que de cette clé donc cettre relation est en 3NF.
+
 
 CV :
 1-Dépendances fonctionnelles
@@ -168,4 +170,5 @@ formation
 cv
 Il n'existe aucune dépendance fonctionnelle dans cette classe.
 2- clé : il n'existe aucun attribut qui détermine tous les autres donc on ajoute une clé artificielle comme IDAF
-3-
+3- Transformation : 1NF car clés et attributs atomiques, la clé est composée d'un seul attribut (2NF) et tous les attributs ne dépendent que de cette clé donc cettre relation est en 3NF.
+
