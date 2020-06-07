@@ -11,7 +11,8 @@ VALUES('Ingénieur informatique','UTC','master','01/09/2020','30/06/2025','Franc
 
 INSERT INTO competence
 VALUES('communication'),
-('gestion de projet');
+('gestion de projet'),
+('base de donnees');
 
 INSERT INTO langue
 VALUES('anglais'),
@@ -73,7 +74,9 @@ INSERT INTO asso_comp
 VALUES('communication','0101'),
 ('gestion de projet','0102'),
 ('communication','0103'),
-('gestion de projet','0103');
+('gestion de projet','0103'),
+('base de donnees','0102'),
+('base de donnees','0101');
 
 INSERT INTO asso_formation
 VALUES('UTC','Ingénieur informatique','0101'),
