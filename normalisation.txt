@@ -8,69 +8,92 @@ Deuxième étape : modèle relationnel (voir MLD)
 Troisième étape : dépendances fonctionnelles
 
 Candidat :
+1-Dépendances fonctionnelles : 
 identifiant->mot_de_passe,
 identifiant->nom,
 identifiant->prenom,
 identifiant->e_mail,
 identifiant->cv,
 (nom,prenom)->e-mail DFélémentaire car ni nom ni prenom ne détermine indépendemment e_mail
-Clé : identifiant 
-1NF, 2NF
-POur avoir une 3NF : 
+2-Clé : 
+identifiant 
+3-Transformation en 3NF : 
 Candidat(#identifiant,mot_de_passe,personne=>personne,cv)
 Personne(#nom,#prenom,e-mail)
-Elle est aussi en BCNF.
+Tous les attributs sont atomiques t il existe au moins une clé pour chaque relation (donc ce schéma est en 1NF), les attributs n'appartenant pas à une clé candidate ne dépendent pas d'une partie seulement d'une clé candidate (le schéma est en 2NF), et les attributs n'appartenant à aucune clé candidate ne dépend directement que de clés candidates. 
+Donc le schéma est en 3NF. 
+En effet, mot_de_passe et cv dépendent d'identifiant et seulement d'identifiant qui est une clé, et e-mail dépend de (nom,prénom) qui est une clé ; de plus e-mail de dépend ni de prénom seul ni de nom seul. 
+
 
 CV :
+1-Dépendances fonctionnelles
 titre
 langue
 statut
 date_crea
 date_modif
-info?
-
+info
+Il n'existe pas de dépendance fonctionnelle dans cette classe. 
 
 Référant : 
+1-Dépendances fonctionnelles
 nom 
 prenom 
 nom_entreprise
 candidat
+Il n'existe pas de dépendance fonctionnelle dans cette classe.
 
 
 Publication: 
+1-Dépendances fonctionnelles
 ISBN->titre
 ISBN->date
 ISBN->contenu
 ISBN->candidat //ici le candidat est désigné comme l'auteur
-Clé : ISBN
-1NF,2NF,3NF,BCNF
+2-Clé :
+ISBN
+3-Transformation en 3NF : 
 publication(#ISBN, titre,date, contenu, candidat) 
+Cette relation est en 3NF car en 1NF (tous les attributs sont atomiques et il existe une clé),en 2NF (les attributs n'appartenant pas à une clé candidate ne dépendent pas d'une partie seulement d'une clé candidate), et en 3NF car les attributs n'appartenant à aucune clé candidate ne dépendent que de la clé candidate ISBN. 
+
 
 
 Web :
+1-Dépendances fonctionnelles
 URL->candidat
 type_web
 
+
 téléphone : 
+1-Dépendances fonctionnelles
 numero->type_tel
 numero->candidat
-Clé : numéro 
+2-Clé : 
+numero 
+3-Transformation en 3NF
 téléphone(#numero, type_tel, candidat)
 
 experience : 
+1-Dépendances fonctionnelles
 nom_entreprise ->secteur_act
 nom_entreprise->titre_poste
 titre_poste->fonction
 date_debut
 date_fin
 cv
-Clé : nom_entreprise (selon le graphe des DFE, on peut voir que nom_entreprise détemine tous les autres attributs)
-3NF : 
-experience(#nom_entreprise, secteur_act, #poste=>poste, date_debut, date_fin, cv) 
+2-Clé :  nom_entreprise (selon le graphe des DFE, on peut voir que nom_entreprise détermine tous les autres attributs)
+3-Transformation en 3NF
+experience(#nom_entreprise, secteur_act, poste=>poste, date_debut, date_fin, cv) 
 poste(#titre_poste, fonction)
+Cette relation est en 3NF car en 1NF (tous les attributs sont atomiques et il existe une clé),
+en 2NF (les attributs n'appartenant pas à une clé candidate ne dépendent pas d'une partie seulement d'une clé candidate
+secteur_act dépend entièrement de nom_entreprise, et fonction dépend entièrement de titre_poste), 
+et en 3NF car les attributs n'appartenant à aucune clé candidate ne dépendent que des clés candidates nom_entreprise et titre_poste. 
+
+
 
 info_complementaire : 
-vehicule ->permis  (on ne peut pas avoir un véhicule sans avoir le permis)
+vehicule -> permis  (on ne peut pas avoir un véhicule sans avoir le permis)
 Clé : véhicule 
 BCNF : info_complementaire(#vehicule, permis)
 
@@ -120,9 +143,6 @@ asso_formation :
 formation 
 cv
 
-Quatrième étape : Formes normales 
-
-Cinquième étape : décomposition 
 
 
 
