@@ -10,19 +10,13 @@ SELECT COUNT (*)
 FROM formation 
 WHERE type_formation='BTS'
 
---sélection de la compétence commmunication -> à remplacer par base de données
+--sélection de la compétence base de données
 --------fontionne ajouter 5 ans d'experience------------
 SELECT (CV.IDCV, candidat.nom, candidat.prenom)
 FROM asso_comp,CV,competence,candidat
-WHERE competence.nom = 'communication' AND asso_comp.competence = competence.nom AND asso_comp.cv = CV.IDCV AND candidat.cv=CV.IDCV
+WHERE competence.nom = 'base de donnees' AND asso_comp.competence = competence.nom AND asso_comp.cv = CV.IDCV AND candidat.cv=CV.IDCV
 
---compétence BDD et 5 ans d'expérience 
-------ne fonctionne pas-------------
-SELECT candidat.nom,candidat.prenom,candidat.identifiant, DATEDIFF(year,date_debut,date_fin) as duree
-FROM asso_comp 
-JOIN experience ON asso_comp.cv=experience.cv
-JOIN candidat ON experience.cv=candidat.cv
-WHERE asso_comp.competence='base de données' AND duree>5
+
 
 --synthétiser le parcours de chaque candidat en précisant 
 --	la liste de ses diplômes, 
