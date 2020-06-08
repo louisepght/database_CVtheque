@@ -172,4 +172,4 @@ Il n'existe aucune dépendance fonctionnelle dans cette classe.
 
 Quatrième étape : construire le nouvel MLD (voir MLD normalisé) 
 
-Cinquième étape : modifier le MCD (voir MCD normalisé)
+Cinquième étape : modifier le MCD, nous n'avons pas à changer l'UML car nous n'avons qu'ajouté des clés artificielles. Or elles n'apparaissent pas sur l'UML.
