@@ -1,11 +1,8 @@
-fichier .pdf contenant les étapes de normalisation de votre modèle et le MLD normalisé. (fichier différent de celui rendu pour le MLD) 
-Pour chaque relation, il faudra déterminer les dépendances fonctionnelles et les clés.
-Transformer chaque relation en 3NF.
-Attention, faites attentions aux clés artificielles lors de la normalisation.
-Si vous modifiez votre MLD lors de la normalisation, il faudra aussi mettre à jour le MCD.
 Première étape : modélisation conceptuelle des données (voir UML) 
+
 Deuxième étape : modèle relationnel (voir MLD)
-Troisième étape : dépendances fonctionnelles
+
+Troisième étape : dépendances fonctionnelles, recherche de clé, transformation en 3NF.
 
 Candidat :
 1-Dépendances fonctionnelles : 
@@ -172,3 +169,7 @@ Il n'existe aucune dépendance fonctionnelle dans cette classe.
 2- clé : il n'existe aucun attribut qui détermine tous les autres donc on ajoute une clé artificielle comme IDAF
 3- Transformation : 1NF car clés et attributs atomiques, la clé est composée d'un seul attribut (2NF) et tous les attributs ne dépendent que de cette clé donc cettre relation est en 3NF.
 
+
+Quatrième étape : construire le nouvel MLD (voir MLD normalisé) 
+
+Cinquième étape : modifier le MCD (voir MCD normalisé)
