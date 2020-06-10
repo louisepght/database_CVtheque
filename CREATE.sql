@@ -31,6 +31,7 @@ CREATE TABLE association(
     nom VARCHAR,
     PRIMARY KEY(nom)
 );
+
 CREATE TABLE CV(
     IDCV INTEGER,
     titre VARCHAR NOT NULL,
@@ -38,7 +39,7 @@ CREATE TABLE CV(
     statut VARCHAR NOT NULL,
     date_crea DATE NOT NULL,
     date_modif DATE NOT NULL,
-    info_CV INTEGER REFERENCES info_complementaire(IDINFO),
+    info_CV INTEGER REFERENCES info_complementaire(IDINFO), 
     PRIMARY KEY(IDCV),
     CHECK(langue IN ('francais', 'anglais')),
     CHECK(statut IN ('activé','confidentiel','désactivé')),
@@ -97,15 +98,22 @@ CREATE TABLE telephone(
 );
 
 CREATE TABLE experience(
-    nom_entreprise VARCHAR,
+    IDexp VARCHAR,
     titre_poste VARCHAR NOT NULL,
     date_debut DATE NOT NULL,
     date_fin DATE NOT NULL,
     fonction VARCHAR NOT NULL,
     secteur_act VARCHAR NOT NULL,
+    PRIMARY KEY(IDexp),
     cv INTEGER NOT NULL REFERENCES CV(IDCV),
-    PRIMARY KEY(nom_entreprise),
     CHECK (date_debut < date_fin)
+);
+
+CREATE TABLE asso_exp(
+    nom_entreprise VARCHAR, 
+    cv INTEGER NOT NULL REFERENCES CV(IDCV),
+    experience VARCHAR NOT NULL REFERENCES experience(IDexp),
+    PRIMARY KEY(nom_entreprise),
 );
 
 
