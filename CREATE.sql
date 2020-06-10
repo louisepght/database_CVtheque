@@ -97,6 +97,15 @@ CREATE TABLE telephone(
     CHECK(type_tel IN ('port_perso','port_pro','fixe_perso','fixe_pro'))
 );
 
+
+
+CREATE TABLE experience(
+    nom_entreprise VARCHAR, 
+    secteur_act VARCHAR NOT NULL,
+    cv INTEGER NOT NULL REFERENCES CV(IDCV),
+    PRIMARY KEY(nom_entreprise)
+);
+
 CREATE TABLE asso_exp(
     titre_poste VARCHAR NOT NULL,
     date_debut DATE NOT NULL,
@@ -108,14 +117,6 @@ CREATE TABLE asso_exp(
     FOREIGN KEY (experience) REFERENCES experience(nom_entreprise),
     CHECK (date_debut < date_fin)
 );
-
-CREATE TABLE experience(
-    nom_entreprise VARCHAR, 
-    secteur_act VARCHAR NOT NULL,
-    cv INTEGER NOT NULL REFERENCES CV(IDCV),
-    PRIMARY KEY(nom_entreprise)
-);
-
 
 CREATE TABLE vie_associative(
     association VARCHAR,
