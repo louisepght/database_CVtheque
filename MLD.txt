@@ -22,8 +22,8 @@ avec nom_entreprise clé, titre_poste, date_debut, date_fin, fonction et secteur
 info_complementaire(#IDINFO : INTEGER, permis : ENUM, vehicule : ENUM)
 avec IDINFO clé étrangère car aucune clé candidate.
 
-formation(#titre : VARCHAR, #etablissement : VARCHAR, type_formation : VARCHAR, date_debut : DATE, date_fin : DATE,  pays : VARCHAR, ville : VARCHAR) 
-avec (titre, etablissement) clé, type, date_debut, date_fin, pays et ville NOT NULL et date_debut < date_fin.
+formation(#titre : VARCHAR, #etablissement : VARCHAR, type_formation : VARCHAR, pays : VARCHAR, ville : VARCHAR) 
+avec (titre, etablissement) clé, type, pays et ville NOT NULL.
 
 competence(#nom : VARCHAR)
 avec nom clé.
@@ -44,6 +44,6 @@ avec (langue, cv) clé, et langue, cv, niveau NOT NULL.
 assoc_comp(#competence => competence, #cv => CV)
 avec (competence, cv) clé.
 
-assoc_formation(#formation => formation, #cv => CV)
-avec (formation, cv) clé.
+assoc_formation(date_debut : DATE, date_fin : DATE,  #formation => formation, #cv => CV)
+avec (formation, cv) clé,date_debut, date_fin NOT NULL et date_debut < date_fin..
 
