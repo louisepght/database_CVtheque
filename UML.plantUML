@@ -2,7 +2,7 @@
 
 CV "0..N" -- "0..N" formation : contient >
 
-CV "1" -- "0..N" experience : contient >
+CV "1..N" -- "0..N" experience : contient >
 
 CV "0..N" -- "0..N" competence : contient >
 
@@ -27,6 +27,16 @@ niveau .. (CV, langue)
 vie_associative .. (association, CV)
 
 note left of vie_associative : la durée se compte en semestre
+
+asso_exp .. (experience,CV) 
+
+class asso_exp{
+    titre_poste VARCHAR 
+    date_debut DATETIME 
+    date_fin DATETIME 
+    fonction VARCHAR 
+    duree ()
+}
 
 class vie_associative{
     date_debut DATE
@@ -60,13 +70,8 @@ class formation
 note bottom: avec (titre, etablissement) KEY
 
 class experience{
-    titre_poste VARCHAR 
-    date_debut DATETIME 
-    date_fin DATETIME 
-    fonction VARCHAR 
     secteur_act VARCHAR 
-    nom_entreprise VARCHAR {KEY} 
-    duree ()
+    nom_entreprise VARCHAR 
 }
 
 class competence{
