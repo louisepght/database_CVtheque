@@ -7,8 +7,11 @@ On ajoute une clé étrangère car aucune clé potentielle, IDCV clé, et titre,
 referant(#IDref : VARCHAR,nom_entreprise : VARCHAR, nom : VARCHAR, prenom : VARCHAR, candidat => candidat.identifiant)
 avec IDref clé, nom_entreprise, nom, prenom NOT NULL, et candidat UNIQUE et NOT NULL.
 
-publication(#ISBN : INTEGER, titre : VARCHAR, date : DATE, contenu : VARCHAR, candidat => candidat.identifiant)
-avec ISBN clé, titre, date, contenu NOT NULL, et candidat NOT NULL et UNIQUE.
+publication(#ISBN : INTEGER, date : DATE, candidat=>candidat.identifiant, titre=>titre.titre_pub)
+avec ISBN clé, date, candidat, titre NOT NULL. 
+
+titre(#titre : VARCHAR, contenu : VARCHAR) 
+avec titre clé, et contenu NOT NULL.
 
 web(#IDweb : VARCHAR, URL : VARCHAR, type_web : ENUM, candidat => candidat.identifiant)
 avec IDweb clé, URL UNIQUE NOT NULL, type NOT NULL et candidat NOT NULL et UNIQUE.
@@ -35,8 +38,8 @@ association(#nom : VARCHAR)
 avec nom clé.
 
 ---transformation N:M---
-vie_associative(#IDvie : VARCHAR, date_debut : DATE, date_fin : DATE, poste : VARCHAR, #association => association, #cv => CV)
-avec IDvie clé, (association, cv)UNIQUE NOT NULL , date_debut NOT NULL, date_debut < date_fin.
+vie_associative(date_debut : DATE, date_fin : DATE, #poste : VARCHAR, #association => association, #cv => CV)
+avec (association, cv, poste) clé, date_debut NOT NULL, date_debut < date_fin.
 
 niveau(#langue => langue, #cv => CV, niveau = VARCHAR)
 avec (langue, cv) clé, et langue, cv, niveau NOT NULL. 
