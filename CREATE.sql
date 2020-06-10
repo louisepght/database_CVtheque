@@ -113,7 +113,7 @@ CREATE TABLE asso_exp(
     nom_entreprise VARCHAR, 
     cv INTEGER NOT NULL REFERENCES CV(IDCV),
     experience VARCHAR NOT NULL REFERENCES experience(IDexp),
-    PRIMARY KEY(nom_entreprise),
+    PRIMARY KEY(nom_entreprise)
 );
 
 
