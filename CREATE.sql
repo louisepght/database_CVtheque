@@ -11,8 +11,6 @@ CREATE TABLE formation(
     titre VARCHAR NOT NULL,
     etablissement VARCHAR NOT NULL,
     type_formation VARCHAR NOT NULL,
-    date_debut DATE NOT NULL,
-    date_fin DATE NOT NULL,
     pays VARCHAR NOT NULL,
     ville VARCHAR NOT NULL,
     UNIQUE (titre,etablissement),
@@ -144,6 +142,8 @@ CREATE TABLE asso_formation(
     formation_etablissement VARCHAR NOT NULL,
     formation_titre VARCHAR NOT NULL,
     cv INTEGER NOT NULL,
+    date_debut DATE NOT NULL,
+    date_fin DATE NOT NULL,
     UNIQUE(cv),
     FOREIGN KEY (formation_etablissement,formation_titre) REFERENCES formation(etablissement,titre),
     FOREIGN KEY (cv) REFERENCES CV(IDCV)
