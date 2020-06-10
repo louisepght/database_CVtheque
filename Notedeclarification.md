@@ -125,7 +125,8 @@ Seul un candidat renseigne son téléphone.
 
 ### L'association 
 Les candidats peuvent avoir une vie associative présentée par une association caractérisée par : 
--le nom de l'association 
+-le nom de l'association
+
 
 Seul un candidat renseigne sa vie associative. Il peut s'être engagé dans aucune, une ou plusieurs associations.
 
@@ -151,7 +152,7 @@ Il s'agit d'une rubrique d'un CV, caractérisée par :
 -le nom de l'entreprise 
 
 Seul un candidat peut renseigner cette rubrique. 
-Un candidat peut avoir aucune, une ou plusieurs expériences. On considère que la variété d'expérience est telle (dans une entreprise donnée, pour le même poste il est peu probable que la date de début et de fin soit la même) que plusieurs candidats ne peuvent avori exactement la même expérience. Ainsi, plusieurs CV ne peuvent pas répertorier exactement la même expérience. 
+Un candidat peut avoir aucune, une ou plusieurs expériences. PLusieurs candidat peuvent avoir eut une expérience dans une même entreprise.
 
 ### La compétence 
 Il s'agit aussi d'une rubrique d'un CV caractérisée par : 
