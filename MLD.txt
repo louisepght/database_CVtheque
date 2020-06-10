@@ -16,8 +16,11 @@ avec URL clé, type NOT NULL et candidat NOT NULL et UNIQUE.
 telephone(#numero : VARCHAR, type_tel = ENUM, candidat => candidat.identifiant}
 avec numero clé, type NOT NULL, et candidat NOT NULL.
 
-experience(#nom_entreprise : VARCHAR, titre_poste : VARCHAR, date_debut : DATE, date_fin : DATE, fonction : VARCHAR, secteur_act : VARCHAR, cv => CV.IDCV)
-avec nom_entreprise clé, titre_poste, date_debut, date_fin, fonction et secteur d'activité NOT NULL, et cv UNIQUE NOT NULL et date_debut < date_fin.
+experience(#nom_entreprise : VARCHAR,  secteur_act : VARCHAR)
+avec nom_entreprise clé,  et secteur d'activité NOT NULL.
+
+asso_exp(#cv => CV.IDCV, #experience=>experience.nom_entreprise, titre_poste : VARCHAR, date_debut : DATE, date_fin : DATE, fonction : VARCHAR,
+avec (cv, experience) clé, titre_poste, date_debut, date_fin, fonction NOT NULL et  date_debut < date_fin.
 
 info_complementaire(#IDINFO : INTEGER, permis : ENUM, vehicule : ENUM)
 avec IDINFO clé étrangère car aucune clé candidate.
