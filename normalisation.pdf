@@ -26,6 +26,7 @@ date_crea
 date_modif
 info
 Il n'existe pas de dépendance fonctionnelle dans cette classe. 
+=> tous les attributs font parti de la clé?
 2-clé : il n'existe aucun attribut qui détermine tous les autres, donc on doit ajouter une clé artificielle comme IDCV comme on l'avait fait. 
 3- 1NF car clés et attributs atomiques, la clé est composée d'un seul attribut (2NF) et tous les attributs ne dépendent que de cette clé donc cettre relation est en 3NF.
 
