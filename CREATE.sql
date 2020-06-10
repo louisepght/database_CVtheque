@@ -102,8 +102,10 @@ CREATE TABLE asso_exp(
     date_debut DATE NOT NULL,
     date_fin DATE NOT NULL,
     fonction VARCHAR NOT NULL,
-    FOREIGN KEY cv INTEGER NOT NULL REFERENCES CV(IDCV),
-    FOREIGN KEY experience VARCHAR NOT NULL REFERENCES experience(nom_entreprise),
+    cv INTEGER NOT NULL,
+    experience  VARCHAR NOT NULL,
+    FOREIGN KEY (cv) REFERENCES CV(IDCV),
+    FOREIGN KEY (experience) REFERENCES experience(nom_entreprise),
     CHECK (date_debut < date_fin)
 );
 
@@ -138,7 +140,7 @@ CREATE TABLE niveau(
 CREATE TABLE asso_comp(
     competence VARCHAR,
     cv INTEGER,
-    FOREIGN KEY(competence) REFERENCES competence(nom),
+    FOREIGN KEY (competence) REFERENCES competence(nom),
     FOREIGN KEY (cv) REFERENCES CV(IDCV),
     UNIQUE (competence,cv)
 );
