@@ -71,7 +71,7 @@ note bottom: avec (titre, etablissement) KEY
 
 class experience{
     secteur_act VARCHAR 
-    nom_entreprise VARCHAR 
+    nom_entreprise VARCHAR {KEY}
 }
 
 class competence{
