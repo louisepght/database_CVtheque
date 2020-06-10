@@ -4,9 +4,9 @@ VALUES('1234','A1','non'),
 ('3456','B1','oui');
 
 INSERT INTO formation
-VALUES('Ingénieur informatique','UTC','master','01/09/2020','30/06/2025','France','compiègne'),
-('Ingénieur informatique','UTT','master','01/09/2020','30/06/2025','France','Troyes'),
-('Designer industriel','UTC','master','01/09/2018','30/06/2021','France','compiègne')
+VALUES('Ingénieur informatique','UTC','master','France','compiègne'),
+('Ingénieur informatique','UTT','master','France','Troyes'),
+('Designer industriel','UTC','master','France','compiègne')
 ;
 
 INSERT INTO competence
@@ -79,9 +79,9 @@ VALUES('communication','0101'),
 ('base de donnees','0101');
 
 INSERT INTO asso_formation
-VALUES('UTC','Ingénieur informatique','0101'),
-('UTT','Ingénieur informatique','0102'),
-('UTC','Designer industriel','0103');
+VALUES('UTC','Ingénieur informatique','0101','01/09/2020','30/06/2025'),
+('UTT','Ingénieur informatique','0102','01/09/2020','30/06/2025'),
+('UTC','Designer industriel','0103','01/09/2018','30/06/2021');
 
 
 
