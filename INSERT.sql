@@ -6,6 +6,7 @@ VALUES('1234','A1','non'),
 INSERT INTO formation
 VALUES('Ingénieur informatique','UTC','master','France','compiègne'),
 ('Ingénieur informatique','UTT','master','France','Troyes'),
+('Designer industriel','UTC','master','France','compiègne'),
 ('Designer industriel','UTC','master','France','compiègne')
 ;
 
@@ -27,14 +28,15 @@ VALUES('toit pour le nepal'),
 INSERT INTO CV
 VALUES('0101','rechrche emploi','francais','désactivé','01/05/2019','03/05/2019','1234'),
 ('0102','recherche emploi','anglais','activé','01/05/2019','03/05/2019','2345'),
-('0103','recherche stage','anglais','confidentiel','01/05/2019','03/05/2019','3456')
-
+('0103','recherche stage','anglais','confidentiel','01/05/2019','03/05/2019','3456'),
+('0104','recherche emploi','francais','confidentiel','02/08/2018','06/06/2020','4567')
 ;
 
 INSERT INTO candidat
 VALUES('louiselog','mdplouise','poughet','louise','louise.poughet@gmail.com','0101'),
 ('thibaultlog','mdpthibault','duval','thibault','thibault@gmail.com','0102'),
-('paulinelog','mdppauline','dupont','pauline','pauline@gmail.com','0103');
+('paulinelog','mdppauline','dupont','pauline','pauline@gmail.com','0103'),
+('maximelog','mdpmaxime','lejeune','maxime','maxime@gmail.com','0104');
 
 INSERT INTO referant
 VALUES('AMIS','francois','duval','louiselog'),
@@ -49,13 +51,17 @@ INSERT INTO telephone
 VALUES('0602030405','port_perso','louiselog'),
 ('0602030404','port_pro','paulinelog'),
 ('0602030406','fixe_perso','paulinelog'),
-('0602030407','fixe_pro','paulinelog');
+('0602030407','fixe_pro','paulinelog'),
+('0602030408','port_pro','maximelog')
+;
 
 INSERT INTO experience
 VALUES('AMIS','stage opérateur','01/02/2019','30/03/2019','ouvrier','siderurgie','0101'),
 ('valeo','chef de projet','01/02/2000','30/03/2010','qualite','equipementier','0102'),
 ('schneider','assistant chef de projet','20/06/1995','10/09/1999','controle','electronique','0102'),
-('airliquide','stage ingénieur','01/02/1994','30/06/1994','BE','gaz','0102');
+('airliquide','stage ingénieur','01/02/1994','30/06/1994','BE','gaz','0102'),
+('airliquide','stage ingénieur','01/02/2018','30/06/2018','BE','gaz','0104')
+;
 
 INSERT INTO vie_associative
 VALUES('toit pour le nepal','louiselog','20/04/2013','20/04/2014','tresorier'),
@@ -81,7 +87,8 @@ VALUES('communication','0101'),
 INSERT INTO asso_formation
 VALUES('UTC','Ingénieur informatique','0101','01/09/2020','30/06/2025'),
 ('UTT','Ingénieur informatique','0102','01/09/2020','30/06/2025'),
-('UTC','Designer industriel','0103','01/09/2018','30/06/2021');
+('UTC','Designer industriel','0103','01/09/2018','30/06/2021'),
+('UTC','Designer industriel','0104','01/09/2017','30/06/2020');
 
 
 
