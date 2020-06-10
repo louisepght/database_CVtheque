@@ -1,0 +1,128 @@
+
+
+@startuml
+
+CV "0..N" -- "0..N" formation : contient >
+
+CV "1" -- "0..N" experience : contient >
+
+CV "0..N" -- "0..N" competence : contient >
+
+CV "0..N" -- "0..N" langue : contient >
+
+CV "0..N" -- "0..1" info_complementaire : contient >
+
+candidat "1" -- "1" CV : possede >
+
+candidat "1"-- "0..N" referant : possede >
+
+candidat "1" -- "0..N" publication : publi >
+
+candidat "1" -- "0..N" web : a > 
+
+candidat "1" -- "1..N" telephone : possede >
+
+CV "0..N" -- "0..N" association : est-engagé >
+
+publication "1" -- "1" titre : a>
+
+niveau .. (CV, langue)
+
+vie_associative .. (association, CV)
+
+note left of vie_associative : la durée se compte en semestre
+
+class vie_associative{
+    date_debut DATE
+    date_fin DATE
+    poste VARCHAR
+}
+
+class niveau {
+    niveau VARCHAR
+}
+
+class CV {
+  titre VARCHAR 
+  langue = {francais, anglais}
+  statut = {active, confidentiel, desactive}
+  date_crea TIMESTAMP
+  date_modif TIMESTAMP
+}
+
+class formation { 
+  titre VARCHAR 
+  type VARCHAR 
+  date_debut DATE
+  date_fin DATE
+  etablissement VARCHAR 
+  pays VARCHAR
+  ville VARCHAR
+}
+
+
+class experience{
+    titre_poste VARCHAR 
+    date_debut DATETIME 
+    date_fin DATETIME 
+    fonction VARCHAR 
+    secteur_act VARCHAR 
+    nom_entreprise VARCHAR
+    duree ()
+}
+
+class competence{
+    nom VARCHAR {KEY}
+}
+
+class langue{
+    langue VARCHAR {KEY}
+}
+
+class info_complementaire{
+    permis = {'AM','A1','A2','A','B1','B','C1','C','D1,','D','BE','C1E','CE','D1E','DE'}
+    vehicule BOOL
+}
+
+class candidat{
+    identifiant VARCHAR {KEY}
+    mot_de_passe VARCHAR 
+    nom VARCHAR
+    prenom VARCHAR
+    e_mail VARCHAR
+}
+
+class referant{
+    nom VARCHAR
+    prenom VARCHAR
+    nom_entreprise VARCHAR
+}
+
+class publication{
+    ISBN INTEGER {KEY}
+    titre VARCHAR 
+    date DATETIME 
+}
+
+class titre {
+    titre_pub VARCHAR {KEY}
+    contenu VARCHAR 
+}
+
+class web {
+    URL VARCHAR {KEY}
+    type = {professionnel, personnel}
+}
+
+class telephone {
+    numero INTEGER {KEY}
+    type = {fixe_perso, port_perso, port_pro, fixe_pro}
+}
+
+class association{
+    nom VARCHAR  {KEY}
+}
+
+
+
+@enduml
