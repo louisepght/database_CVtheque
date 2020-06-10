@@ -14,8 +14,7 @@ CREATE TABLE formation(
     pays VARCHAR NOT NULL,
     ville VARCHAR NOT NULL,
     UNIQUE (titre,etablissement),
-    PRIMARY KEY(titre,etablissement),
-    CHECK (date_debut < date_fin)
+    PRIMARY KEY(titre,etablissement)
 );
 
 CREATE TABLE competence(
@@ -145,6 +144,7 @@ CREATE TABLE asso_formation(
     date_debut DATE NOT NULL,
     date_fin DATE NOT NULL,
     UNIQUE(cv),
+    CHECK (date_debut < date_fin),
     FOREIGN KEY (formation_etablissement,formation_titre) REFERENCES formation(etablissement,titre),
     FOREIGN KEY (cv) REFERENCES CV(IDCV)
 );
