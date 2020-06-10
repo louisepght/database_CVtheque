@@ -13,8 +13,13 @@ WHERE type_formation='BTS'
 --sélection de la compétence base de données
 --------fontionne ajouter 5 ans d'experience------------
 SELECT (CV.IDCV, candidat.nom, candidat.prenom)
-FROM asso_comp,CV,competence,candidat
-WHERE competence.nom = 'base de donnees' AND asso_comp.competence = competence.nom AND asso_comp.cv = CV.IDCV AND candidat.cv=CV.IDCV
+FROM CV, candidat, asso_comp
+WHERE asso_comp.competence='base de donnees' AND cv.IDCV=asso_comp.cv AND candidat.cv=CV.IDCV
+
+-----------la contrainte sur la durée ne fonctionne pas-------------
+SELECT EXTRACT(YEAR FROM experience.date_fin) - EXTRACT(YEAR FROM experience.date_debut) AS duree, experience.cv
+FROM experience
+--WHERE duree>5
 
 
 
