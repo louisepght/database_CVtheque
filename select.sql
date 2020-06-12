@@ -57,11 +57,10 @@ WHERE asso_formation.date_fin='2025-06-30'
 
 -------------------------------------
 SELECT candidat.nom, candidat.prenom, candidat.identifiant, CV.IDCV
-FROM formation JOIN asso_formation 
-ON (etablissement,titre)=(formation_etablissement,formation_titre)
+FROM asso_formation 
 JOIN CV ON CV.IDCV=asso_formation.cv
 JOIN candidat ON candidat.cv=CV.IDCV
-WHERE formation.date_fin='2021-06-30'
+WHERE asso_formation.date_fin='2021-06-30'
 -------------------------------------
 
 -------ébauche nombre d'experience----------
