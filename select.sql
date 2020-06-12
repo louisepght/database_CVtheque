@@ -30,10 +30,13 @@ JOIN candidat ON candidat.cv=CV.IDCV
 --	le nombre d'expériences professionnelles acquises, 
 --	les langues maîtrisées;
 -------fonctionne mais il manque nb expérience------------------
-SELECT CV.IDCV, niveau.langue, niveau.niveau, asso_exp.titre_poste,asso_formation.formation_titre
-FROM niveau JOIN CV ON niveau.cv=CV.IDCV
-JOIN asso_exp ON asso_exp.cv=CV.IDCV 
-JOIN asso_formation ON asso_formation.cv=CV.IDCV
+CREATE VIEW parcours
+(nombre_experience, cv, nom, prenom, identifiant, diplome, postes, langue)
+AS SELECT COUNT(*) as nombre, asso_exp.cv, candidat.nom, candidat.prenom, candidat.identifiant, asso_formation.formation_titre, asso_exp.titre_poste, niveau.langue
+FROM asso_exp, CV, candidat, niveau,asso_formation
+WHERE CV.IDCV=asso_exp.cv AND candidat.cv=CV.IDCV AND niveau.cv=CV.IDCV AND asso_formation.cv=CV.IDCV
+GROUP BY asso_exp.cv, candidat.nom, candidat.prenom, candidat.identifiant, asso_formation.formation_titre, asso_exp.titre_poste, niveau.langue
+
 ---------------------------------------------------------------
 
 --la recherche multicritères des candidats en fonction 
@@ -73,19 +76,6 @@ GROUP BY asso_exp.cv, candidat.nom, candidat.prenom, candidat.identifiant
 -------------------------------------
 
 
--------ébauche nombre d'experience----------
-SELECT COUNT (*)
-FROM experience
-WHERE experience.cv=102
-
-SELECT COUNT (*)
-FROM experience
-WHERE experience.cv=103
-
-SELECT COUNT (*)
-FROM experience
-WHERE experience.cv=101
-------------------------------------------
 
 
 
