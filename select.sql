@@ -11,7 +11,7 @@ SELECT COUNT (*)
 FROM formation 
 WHERE type_formation='BTS'
 
---sélection de la compétence base de données
+--sélection de la compétence base de données et du nombre d'années d'expérience
 -----------la contrainte sur la durée ne fonctionne pas-------------
 SELECT EXTRACT(YEAR FROM asso_exp.date_fin) - EXTRACT(YEAR FROM asso_exp.date_debut) AS duree,CV.IDCV,asso_comp.competence, candidat.identifiant,candidat.prenom, candidat.nom
 FROM asso_exp JOIN CV ON asso_exp.cv=CV.IDCV
