@@ -63,6 +63,14 @@ JOIN candidat ON candidat.cv=CV.IDCV
 WHERE asso_formation.date_fin='2021-06-30'
 -------------------------------------
 
+
+CREATE VIEW information
+(nombre d'experience, identifiant)
+AS SELECT COUNT(*) as nombre, asso_exp.cv
+FROM asso_exp
+GROUP BY cv
+
+
 -------ébauche nombre d'experience----------
 SELECT COUNT (*)
 FROM experience
