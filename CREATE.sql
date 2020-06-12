@@ -102,7 +102,6 @@ CREATE TABLE telephone(
 CREATE TABLE experience(
     nom_entreprise VARCHAR, 
     secteur_act VARCHAR NOT NULL,
-    cv INTEGER NOT NULL REFERENCES CV(IDCV),
     PRIMARY KEY(nom_entreprise)
 );
 
