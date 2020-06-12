@@ -65,7 +65,7 @@ WHERE asso_formation.date_fin='2021-06-30'
 
 
 CREATE VIEW information
-(nombre d'experience, identifiant)
+(nombre experience, identifiant)
 AS SELECT COUNT(*) as nombre, asso_exp.cv
 FROM asso_exp
 GROUP BY cv
