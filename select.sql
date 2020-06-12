@@ -30,9 +30,9 @@ JOIN candidat ON candidat.cv=CV.IDCV
 --	le nombre d'expériences professionnelles acquises, 
 --	les langues maîtrisées;
 -------fonctionne mais il manque nb expérience------------------
-SELECT CV.IDCV, niveau.langue, niveau.niveau, experience.titre_poste,asso_formation.formation_titre
+SELECT CV.IDCV, niveau.langue, niveau.niveau, asso_exp.titre_poste,asso_formation.formation_titre
 FROM niveau JOIN CV ON niveau.cv=CV.IDCV
-JOIN experience ON experience.cv=CV.IDCV 
+JOIN asso_exp ON asso_exp.cv=CV.IDCV 
 JOIN asso_formation ON asso_formation.cv=CV.IDCV
 ---------------------------------------------------------------
 
@@ -42,18 +42,17 @@ JOIN asso_formation ON asso_formation.cv=CV.IDCV
 --	du poste souhaité. 
 -------------------------------------
 SELECT candidat.nom, candidat.prenom, candidat.identifiant, CV.IDCV
-FROM experience JOIN CV ON experience.cv=CV.IDCV
+FROM asso_exp JOIN CV ON asso_exp.cv=CV.IDCV
 JOIN candidat ON candidat.cv=CV.IDCV
-WHERE experience.titre_poste='chef de projet'
+WHERE asso_exp.titre_poste='chef de projet'
 -------------------------------------
 
 -------------------------------------
 SELECT candidat.nom, candidat.prenom, candidat.identifiant, CV.IDCV
-FROM formation JOIN asso_formation 
-ON (etablissement,titre)=(formation_etablissement,formation_titre)
+FROM asso_formation
 JOIN CV ON CV.IDCV=asso_formation.cv
 JOIN candidat ON candidat.cv=CV.IDCV
-WHERE formation.date_fin='2025-06-30' 
+WHERE asso_formation.date_fin='2025-06-30' 
 -------------------------------------
 
 -------------------------------------
