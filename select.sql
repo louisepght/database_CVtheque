@@ -38,16 +38,16 @@ JOIN asso_formation ON asso_formation.cv=CV.IDCV
 
 --la recherche multicritères des candidats en fonction 
 --	du nombre d'expériences professionnelles,  
---	de l'année d'obtention de dernier diplôme, 
+--	de l'année d'obtention de diplôme, 
 --	du poste souhaité. 
--------------------------------------
+-------Poste souhaité------------------------------
 SELECT candidat.nom, candidat.prenom, candidat.identifiant, CV.IDCV
 FROM asso_exp JOIN CV ON asso_exp.cv=CV.IDCV
 JOIN candidat ON candidat.cv=CV.IDCV
 WHERE asso_exp.titre_poste='chef de projet'
 -------------------------------------
 
--------------------------------------
+--------Année d'obtention du diplome-----------------------------
 SELECT candidat.nom, candidat.prenom, candidat.identifiant, CV.IDCV
 FROM asso_formation
 JOIN CV ON CV.IDCV=asso_formation.cv
@@ -55,7 +55,7 @@ JOIN candidat ON candidat.cv=CV.IDCV
 WHERE asso_formation.date_fin='2025-06-30' 
 -------------------------------------
 
--------------------------------------
+--------Année d'obtention du diplome-----------------------------
 SELECT candidat.nom, candidat.prenom, candidat.identifiant, CV.IDCV
 FROM asso_formation 
 JOIN CV ON CV.IDCV=asso_formation.cv
@@ -63,12 +63,14 @@ JOIN candidat ON candidat.cv=CV.IDCV
 WHERE asso_formation.date_fin='2021-06-30'
 -------------------------------------
 
-
-CREATE VIEW information
-(nombre experience, identifiant)
-AS SELECT COUNT(*) as nombre, asso_exp.cv
-FROM asso_exp
-GROUP BY cv
+---------Nombre d'expérience----------------------------
+CREATE VIEW information_candidat
+(nombre_experience, cv, nom, prenom, identifiant)
+AS SELECT COUNT(*) as nombre, asso_exp.cv, candidat.nom, candidat.prenom, candidat.identifiant
+FROM asso_exp, CV, candidat 
+WHERE CV.IDCV=asso_exp.cv AND candidat.cv=CV.IDCV
+GROUP BY asso_exp.cv, candidat.nom, candidat.prenom, candidat.identifiant
+-------------------------------------
 
 
 -------ébauche nombre d'experience----------
