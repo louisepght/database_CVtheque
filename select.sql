@@ -22,6 +22,7 @@ SELECT EXTRACT(YEAR FROM experience.date_fin) - EXTRACT(YEAR FROM experience.dat
 FROM experience JOIN CV ON experience.cv=CV.IDCV --AND duree>5
 JOIN asso_comp ON (asso_comp.cv=CV.IDCV AND asso_comp.competence='base de donnees')
 JOIN candidat ON candidat.cv=CV.IDCV
+--------------------------------------------------------------------
 
 
 --synthétiser le parcours de chaque candidat en précisant 
@@ -29,14 +30,13 @@ JOIN candidat ON candidat.cv=CV.IDCV
 --	la liste des postes occupés, 
 --	le nombre d'expériences professionnelles acquises, 
 --	les langues maîtrisées;
--------fonctionne mais il manque nb expérience------------------
+--------------------------------------------------------------
 CREATE VIEW parcours
 (nombre_experience, cv, nom, prenom, identifiant, diplome, postes, langue)
 AS SELECT COUNT(*) as nombre, asso_exp.cv, candidat.nom, candidat.prenom, candidat.identifiant, asso_formation.formation_titre, asso_exp.titre_poste, niveau.langue
 FROM asso_exp, CV, candidat, niveau,asso_formation
 WHERE CV.IDCV=asso_exp.cv AND candidat.cv=CV.IDCV AND niveau.cv=CV.IDCV AND asso_formation.cv=CV.IDCV
 GROUP BY asso_exp.cv, candidat.nom, candidat.prenom, candidat.identifiant, asso_formation.formation_titre, asso_exp.titre_poste, niveau.langue
-
 ---------------------------------------------------------------
 
 --la recherche multicritères des candidats en fonction 
