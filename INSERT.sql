@@ -1,12 +1,12 @@
 INSERT INTO info_complementaire
 VALUES('1234','A1','non'),
 ('2345','B1','oui'),
-('3456','B1','oui');
+('3456','B1','oui'),
+('4567','B1','oui');
 
 INSERT INTO formation
 VALUES('Ingénieur informatique','UTC','master','France','compiègne'),
 ('Ingénieur informatique','UTT','master','France','Troyes'),
-('Designer industriel','UTC','master','France','compiègne'),
 ('Designer industriel','UTC','master','France','compiègne')
 ;
 
@@ -57,17 +57,18 @@ VALUES('0602030405','port_perso','louiselog'),
 
 INSERT INTO experience
 VALUES('AMIS','siderurgie'),
-('valeo','chef de projet','01/02/2000','30/03/2010','qualite','equipementier','0102'),
+('valeo','equipementier'),
 ('schneider','electronique'),
-('airliquide','gaz'),
 ('airliquide','gaz')
 ;
 
 INSERT INTO asso_exp 
-VALUES ('stage opérateur','01/02/2019','30/03/2019','ouvrier','0101'),
-('assistant chef de projet','20/06/1995','10/09/1999','controle','0102'),
-('stage ingénieur','01/02/1994','30/06/1994','BE','0102'),
-('stage ingénieur','01/02/2018','30/06/2018','BE','0104');
+VALUES ('stage opérateur','01/02/2019','30/03/2019','ouvrier','0101','AMIS'),
+('assistant chef de projet','20/06/1995','10/09/1999','controle','0102','schneider'),
+('stage ingénieur','01/02/1994','30/06/1994','BE','0102','airliquide'),
+('stage ingénieur','01/02/2018','30/06/2018','BE','0104','airliquide'),
+('chef de projet','01/02/2000','30/03/2010','qualite','0102','valeo')
+;
 
 
 INSERT INTO vie_associative
@@ -96,6 +97,11 @@ VALUES('UTC','Ingénieur informatique','0101','01/09/2020','30/06/2025'),
 ('UTT','Ingénieur informatique','0102','01/09/2020','30/06/2025'),
 ('UTC','Designer industriel','0103','01/09/2018','30/06/2021'),
 ('UTC','Designer industriel','0104','01/09/2017','30/06/2020');
+
+
+
+
+
 
 
 
