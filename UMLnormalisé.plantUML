@@ -1,10 +1,8 @@
-
-
 @startuml
 
 CV "0..N" -- "0..N" formation : contient >
 
-CV "1" -- "0..N" experience : contient >
+CV "1..N" -- "0..N" experience : contient >
 
 CV "0..N" -- "0..N" competence : contient >
 
@@ -24,13 +22,29 @@ candidat "1" -- "1..N" telephone : possede >
 
 CV "0..N" -- "0..N" association : est-engagé >
 
-publication "1" -- "1" titre : a>
-
 niveau .. (CV, langue)
 
 vie_associative .. (association, CV)
 
 note left of vie_associative : la durée se compte en semestre
+
+asso_exp .. (experience,CV) 
+
+poste "1"--"1..N" asso_exp : a <
+
+
+
+
+class asso_exp {
+    date_debut DATETIME 
+    date_fin DATETIME 
+    duree ()
+}
+
+class poste{
+    titre_poste VARCHAR {KEY}
+    fonction VARCHAR
+}
 
 class vie_associative{
     date_debut DATE
@@ -60,15 +74,12 @@ class formation {
   ville VARCHAR
 }
 
+class formation
+note bottom: avec (titre, etablissement) KEY
 
 class experience{
-    titre_poste VARCHAR 
-    date_debut DATETIME 
-    date_fin DATETIME 
-    fonction VARCHAR 
     secteur_act VARCHAR 
-    nom_entreprise VARCHAR
-    duree ()
+    nom_entreprise VARCHAR {KEY}
 }
 
 class competence{
@@ -95,27 +106,23 @@ class candidat{
 class referant{
     nom VARCHAR
     prenom VARCHAR
-    nom_entreprise VARCHAR
+    nom_entreprise VARCHAR 
 }
 
 class publication{
-    ISBN INTEGER {KEY}
+    ISBN INTEGER 
     titre VARCHAR 
     date DATETIME 
-}
-
-class titre {
-    titre_pub VARCHAR {KEY}
     contenu VARCHAR 
 }
 
 class web {
-    URL VARCHAR {KEY}
+    URL VARCHAR 
     type = {professionnel, personnel}
 }
 
 class telephone {
-    numero INTEGER {KEY}
+    numero INTEGER 
     type = {fixe_perso, port_perso, port_pro, fixe_pro}
 }
 
@@ -126,3 +133,4 @@ class association{
 
 
 @enduml
+
